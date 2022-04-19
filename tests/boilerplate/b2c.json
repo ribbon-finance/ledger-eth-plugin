@@ -1,0 +1,41 @@
+{
+    "chainId": 1,
+    "contracts": [
+        {
+            "address": "0x7a250d5630b4cf539739df2c5dacb4c659f2488d",
+            "contractName": "UniswapV2",
+            "selectors": {
+                "0x7ff36ab5": {
+                    "erc20OfInterest": [
+                        "path.1"
+                    ],
+                    "method": "swapExactETHForTokens",
+                    "plugin": "Boilerplate"
+		        }
+	        }
+	    },
+        {
+            "address": "0xe63151a0ed4e5fafdc951d877102cf0977abd365",
+            "contractName": "RibbonAaveThetaVault",
+            "selectors": {
+                "0xb6b55f25": {
+                    "erc20OfInterest": [],
+                    "method": "deposit",
+                    "plugin": "Boilerplate"
+		        }
+	        }
+	    },
+        {
+            "address": "0x25751853eab4d0eb3652b5eb6ecb102a2789644b",
+            "contractName": "RibbonETHThetaVault",
+            "selectors": {
+                "0xf6326fb3": {
+                    "erc20OfInterest": [],
+                    "method": "depositETH",
+                    "plugin": "Boilerplate"
+		        }
+	        }
+	    }
+    ],
+    "name": "Boilerplate"
+}
