@@ -60,24 +60,34 @@ static void set_beneficiary_ui(ethQueryContractUI_t *msg, context_t *context) {
         chainid);
 }
 
+static void set_vault_ui(ethQueryContractUI_t *msg, context_t *context) {
+    strlcpy(msg->title, "Vault", msg->titleLength);
+    strlcpy(msg->msg,
+            (char *) context->vaultName,
+            msg->msgLength);
+}
+
 static void set_deposit_ui(ethQueryContractUI_t *msg, context_t *context) {
-    strlcpy(msg->title, "Deposit", msg->titleLength);
+    strlcpy(msg->title, "DEPOSIT", msg->titleLength);
+    strlcpy(msg->msg, "AAVE 69.69", msg->msgLength);
 
-    uint8_t decimals = context->decimals;
-    const char *ticker = context->ticker;
+    // strlcpy(msg->title, "Deposit", msg->titleLength);
 
-    // If the token look up failed, use the default network ticker along with the default decimals.
-    if (!context->token_found) {
-        decimals = WEI_TO_ETHER;
-        ticker = "ETH";
-    }
+    // uint8_t decimals = context->decimals;
+    // const char *ticker = context->ticker;
 
-    amountToString(context->deposit_amount,
-                   sizeof(context->deposit_amount),
-                   decimals,
-                   ticker,
-                   msg->msg,
-                   msg->msgLength);
+    // // If the token look up failed, use the default network ticker along with the default decimals.
+    // if (!context->token_found) {
+    //     decimals = WEI_TO_ETHER;
+    //     ticker = "ETH";
+    // }
+
+    // amountToString(context->deposit_amount,
+    //                sizeof(context->deposit_amount),
+    //                decimals,
+    //                ticker,
+    //                msg->msg,
+    //                msg->msgLength);
 }
 
 void handle_query_contract_ui(void *parameters) {
@@ -110,12 +120,12 @@ void handle_query_contract_ui(void *parameters) {
                 msg->result = ETH_PLUGIN_RESULT_ERROR;
                 return;
         }
-    } else if (
-        context->selectorIndex == DEPOSIT ||
-        context->selectorIndex == DEPOSIT_ETH
-    ) {
+    } else if (context->selectorIndex == DEPOSIT || context->selectorIndex == DEPOSIT_ETH) {
         switch (msg->screenIndex) {
             case 0:
+                set_vault_ui(msg, context);
+                break;
+            case 1:
                 set_deposit_ui(msg, context);
                 break;
             // Keep this

@@ -12,6 +12,17 @@
 // EDIT THIS: Replace with your plugin name.
 #define PLUGIN_NAME "Ribbon"
 
+#define NUM_VAULT_ADDRESS_COLLECTION 6
+#define MAX_VAULT_TICKER_LEN 15
+typedef struct vault_address_ticker {
+    uint8_t contract_address[ADDRESS_LENGTH];
+    char vault_ticker[MAX_VAULT_TICKER_LEN];
+    uint8_t asset_address[ADDRESS_LENGTH];
+    char asset_ticker[MAX_TICKER_LEN];
+    uint8_t decimals;
+} vault_address_ticker_t;
+extern const vault_address_ticker_t CONTRACT_ADDRESS_COLLECTION[NUM_VAULT_ADDRESS_COLLECTION];
+
 // Enumeration of the different selectors possible.
 // Should follow the exact same order as the array declared in main.c
 // EDIT THIS: Change the naming (`selector_t`), and add your selector names.
@@ -51,6 +62,8 @@ typedef struct context_t {
 
     // For Ribbon Theta vault.
     uint8_t deposit_amount[INT256_LENGTH];
+    char vaultName[MAX_VAULT_TICKER_LEN];
+    uint8_t asset_token[ADDRESS_LENGTH];
 
     // For parsing data.
     uint8_t next_param;  // Set to be the next param we expect to parse.
