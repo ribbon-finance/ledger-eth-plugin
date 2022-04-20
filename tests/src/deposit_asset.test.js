@@ -139,6 +139,20 @@ nano_models.forEach(function (model) {
 
 // ONLY test for nano s
 const model = nano_models[0];
+const vaults = [
+  {
+    name: "T-AAVE-C",
+    rawTx: "0x02f892018201c58459682f00850a22bc93d18303b62394e63151a0ed4e5fafdc951d877102cf0977abd36580a4b6b55f250000000000000000000000000000000000000000000000038252536bd64eebebc001a0096fe1ddb48a9e927cada2c03b9df35b6012f3fbff951025e44b5ac3ad5d77f1a04dcd0366fe2a03b52f180123a568bd2c48036875f90565094aad4995fe36efd1"
+  },
+  {
+    name: "T-WBTC-C",
+    rawTx: "0x02f89001338459682f0085062e1ee4f483015c439465a833afdc250d9d38f8cd9bc2b1e3132db13b2f80a4b6b55f250000000000000000000000000000000000000000000000000000000000121731c001a0e4a295c678f181da338d48ae336a6e5d356524e61c95eb45021f17667c6ca7eaa07784b458b417f85a6326b803fb6af784b5d2f7ced9fa917dc5b2e80b022f5bb0"
+  },
+  {
+    name: "T-APE-C",
+    rawTx: "0x02f89001148459682f0085078c10e012830197b394c0cf10dd710aefb209d9dc67bc746510ffd98a5380a4b6b55f250000000000000000000000000000000000000000000004ee5d807432da1bd2e9c080a0017799d2d1e9680f532ccd0257e2ca54d1e020d6c84a9b27da7ce3b54b3c2d89a03d51ae1426f0b81ccead49fb47b498dfd8617339b3d3139e1c04545bdfde015b"
+  },
+]
 
 test('[Nano ' + model.letter + '] Swap Exact Eth For Tokens with beneficiary', zemu(model, async (sim, eth) => {
 
@@ -160,24 +174,26 @@ test('[Nano ' + model.letter + '] Swap Exact Eth For Tokens with beneficiary', z
   await tx;
 }));
 
-
-test('[Nano ' + model.letter + '] Deposit AAVE into Call Theta Vault', zemu(model, async (sim, eth) => {
-  // The rawTx of the tx up above is accessible through: https://etherscan.io/getRawTx?tx=0xc72cb565ec57db33a2bc689319c0872738c37cce5c92c3d71e7b776f13bf5987
-  const serializedTx = txFromEtherscan("0x02f892018201c58459682f00850a22bc93d18303b62394e63151a0ed4e5fafdc951d877102cf0977abd36580a4b6b55f250000000000000000000000000000000000000000000000038252536bd64eebebc001a0096fe1ddb48a9e927cada2c03b9df35b6012f3fbff951025e44b5ac3ad5d77f1a04dcd0366fe2a03b52f180123a568bd2c48036875f90565094aad4995fe36efd1");
-  const tx = eth.signTransaction(
-    "44'/60'/0'/0",
-    serializedTx,
-  );
-
-  const right_clicks = model.letter === 'S' ? 7 : 5;
-
-  // Wait for the application to actually load and parse the transaction
-  await waitForAppScreen(sim);
-  // Navigate the display by pressing the right button `right_clicks` times, then pressing both buttons to accept the transaction.
-  await sim.navigateAndCompareSnapshots('.', model.name + '_deposit_aave', [right_clicks, 0]);
-
-  await tx;
-}));
+for (let i = 0; i < vaults.length; i++) {
+  const { name, rawTx } = vaults[i];
+  test('[Nano ' + model.letter + '] Deposit '+ name, zemu(model, async (sim, eth) => {
+    // The rawTx of the tx up above is accessible through: https://etherscan.io/getRawTx?tx=0xc72cb565ec57db33a2bc689319c0872738c37cce5c92c3d71e7b776f13bf5987
+    const serializedTx = txFromEtherscan(rawTx);
+    const tx = eth.signTransaction(
+      "44'/60'/0'/0",
+      serializedTx,
+    );
+  
+    const right_clicks = model.letter === 'S' ? 8 : 5;
+  
+    // Wait for the application to actually load and parse the transaction
+    await waitForAppScreen(sim);
+    // Navigate the display by pressing the right button `right_clicks` times, then pressing both buttons to accept the transaction.
+    await sim.navigateAndCompareSnapshots('.', model.name + '_' + name + "_deposit", [right_clicks, 0]);
+  
+    await tx;
+  })); 
+}
 
 // test('[Nano ' + model.letter + '] Deposit ETH into Call Theta Vault', zemu(model, async (sim, eth) => {
 //   // The rawTx of the tx up above is accessible through: https://etherscan.io/getRawTx?tx=0xcb580b1de5c62e6894380e065b98f04dbf64e026940cecc321a3fe36c9e6ce57

@@ -26,6 +26,28 @@
 	        }
 	    },
         {
+            "address": "0x65a833afdc250d9d38f8cd9bc2b1e3132db13b2f",
+            "contractName": "RibbonWBTCThetaVault",
+            "selectors": {
+                "0xb6b55f25": {
+                    "erc20OfInterest": [],
+                    "method": "deposit",
+                    "plugin": "Boilerplate"
+		        }
+	        }
+	    },
+        {
+            "address": "0xc0cf10dd710aefb209d9dc67bc746510ffd98a53",
+            "contractName": "RibbonAPEThetaVault",
+            "selectors": {
+                "0xb6b55f25": {
+                    "erc20OfInterest": [],
+                    "method": "deposit",
+                    "plugin": "Boilerplate"
+		        }
+	        }
+	    },
+        {
             "address": "0x25751853eab4d0eb3652b5eb6ecb102a2789644b",
             "contractName": "RibbonETHThetaVault",
             "selectors": {

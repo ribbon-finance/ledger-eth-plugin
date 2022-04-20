@@ -62,32 +62,49 @@ static void set_beneficiary_ui(ethQueryContractUI_t *msg, context_t *context) {
 
 static void set_vault_ui(ethQueryContractUI_t *msg, context_t *context) {
     strlcpy(msg->title, "Vault", msg->titleLength);
-    strlcpy(msg->msg,
-            (char *) context->vaultName,
-            msg->msgLength);
+    strlcpy(msg->msg, "Unknown", msg->msgLength);
+
+    vault_address_ticker_t *currentVault = NULL;
+    for (uint8_t i = 0; i < NUM_VAULT_ADDRESS_COLLECTION; i++) {
+        currentVault = (vault_address_ticker_t *) PIC(&CONTRACT_ADDRESS_COLLECTION[i]);
+        if (memcmp(currentVault->contract_address,
+                   msg->pluginSharedRO->txContent->destination,
+                   ADDRESS_LENGTH) == 0) {
+            memset(msg->msg, 0, msg->msgLength);
+            strlcpy(msg->msg, (char *) currentVault->vault_ticker, msg->msgLength);
+            break;
+        }
+    }
 }
 
 static void set_deposit_ui(ethQueryContractUI_t *msg, context_t *context) {
-    strlcpy(msg->title, "DEPOSIT", msg->titleLength);
-    strlcpy(msg->msg, "AAVE 69.69", msg->msgLength);
+    // strlcpy(msg->title, "DEPOSIT", msg->titleLength);
+    // strlcpy(msg->msg, "AAVE 69.69", msg->msgLength);
 
-    // strlcpy(msg->title, "Deposit", msg->titleLength);
+    strlcpy(msg->title, "Deposit", msg->titleLength);
 
-    // uint8_t decimals = context->decimals;
-    // const char *ticker = context->ticker;
+    // Defaults to ETH if no vault found.
+    uint8_t decimals = WEI_TO_ETHER;
+    char ticker[MAX_TICKER_LEN] = "ETH ";
 
-    // // If the token look up failed, use the default network ticker along with the default decimals.
-    // if (!context->token_found) {
-    //     decimals = WEI_TO_ETHER;
-    //     ticker = "ETH";
-    // }
+    vault_address_ticker_t *currentVault = NULL;
+    for (uint8_t i = 0; i < NUM_VAULT_ADDRESS_COLLECTION; i++) {
+        currentVault = (vault_address_ticker_t *) PIC(&CONTRACT_ADDRESS_COLLECTION[i]);
+        if (memcmp(currentVault->contract_address,
+                   msg->pluginSharedRO->txContent->destination,
+                   ADDRESS_LENGTH) == 0) {
+            decimals = currentVault->decimals;
+            strncpy(ticker, (char *) currentVault->asset_ticker, sizeof(ticker));
+            break;
+        }
+    }
 
-    // amountToString(context->deposit_amount,
-    //                sizeof(context->deposit_amount),
-    //                decimals,
-    //                ticker,
-    //                msg->msg,
-    //                msg->msgLength);
+    amountToString(context->deposit_amount,
+                   sizeof(context->deposit_amount),
+                   decimals,
+                   ticker,
+                   msg->msg,
+                   msg->msgLength);
 }
 
 void handle_query_contract_ui(void *parameters) {
