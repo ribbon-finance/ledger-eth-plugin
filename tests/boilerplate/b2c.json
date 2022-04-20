@@ -48,6 +48,17 @@
 	        }
 	    },
         {
+            "address": "0xcc323557c71c0d1d20a1861dc69c06c5f3cc9624",
+            "contractName": "RibbonETHPutThetaVault",
+            "selectors": {
+                "0xb6b55f25": {
+                    "erc20OfInterest": [],
+                    "method": "deposit",
+                    "plugin": "Boilerplate"
+		        }
+	        }
+	    },
+        {
             "address": "0x25751853eab4d0eb3652b5eb6ecb102a2789644b",
             "contractName": "RibbonETHThetaVault",
             "selectors": {
