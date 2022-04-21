@@ -1,4 +1,4 @@
-#include "boilerplate_plugin.h"
+#include "ribbon_plugin.h"
 
 // Sets the first screen to display.
 void handle_query_contract_id(void *parameters) {
@@ -11,11 +11,8 @@ void handle_query_contract_id(void *parameters) {
     strlcpy(msg->name, PLUGIN_NAME, msg->nameLength);
 
     // EDIT THIS: Adapt the cases by modifying the strings you pass to `strlcpy`.
-    if (context->selectorIndex == SWAP_EXACT_ETH_FOR_TOKENS) {
-        strlcpy(msg->version, "Swap", msg->versionLength);
-        msg->result = ETH_PLUGIN_RESULT_OK;
-    } else if (context->selectorIndex == DEPOSIT || context->selectorIndex == DEPOSIT_ETH ||
-               context->selectorIndex == DEPOSIT_YIELD_TOKEN) {
+    if (context->selectorIndex == DEPOSIT || context->selectorIndex == DEPOSIT_ETH ||
+        context->selectorIndex == DEPOSIT_YIELD_TOKEN) {
         strlcpy(msg->version, "Deposit", msg->versionLength);
         msg->result = ETH_PLUGIN_RESULT_OK;
     } else {

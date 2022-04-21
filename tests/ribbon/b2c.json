@@ -2,26 +2,13 @@
     "chainId": 1,
     "contracts": [
         {
-            "address": "0x7a250d5630b4cf539739df2c5dacb4c659f2488d",
-            "contractName": "UniswapV2",
-            "selectors": {
-                "0x7ff36ab5": {
-                    "erc20OfInterest": [
-                        "path.1"
-                    ],
-                    "method": "swapExactETHForTokens",
-                    "plugin": "Boilerplate"
-		        }
-	        }
-	    },
-        {
             "address": "0xe63151a0ed4e5fafdc951d877102cf0977abd365",
             "contractName": "RibbonAaveThetaVault",
             "selectors": {
                 "0xb6b55f25": {
                     "erc20OfInterest": [],
                     "method": "deposit",
-                    "plugin": "Boilerplate"
+                    "plugin": "Ribbon"
 		        }
 	        }
 	    },
@@ -32,7 +19,7 @@
                 "0xb6b55f25": {
                     "erc20OfInterest": [],
                     "method": "deposit",
-                    "plugin": "Boilerplate"
+                    "plugin": "Ribbon"
 		        }
 	        }
 	    },
@@ -43,7 +30,7 @@
                 "0xb6b55f25": {
                     "erc20OfInterest": [],
                     "method": "deposit",
-                    "plugin": "Boilerplate"
+                    "plugin": "Ribbon"
 		        }
 	        }
 	    },
@@ -54,7 +41,7 @@
                 "0xb6b55f25": {
                     "erc20OfInterest": [],
                     "method": "deposit",
-                    "plugin": "Boilerplate"
+                    "plugin": "Ribbon"
 		        }
 	        }
 	    },
@@ -65,7 +52,7 @@
                 "0xf6326fb3": {
                     "erc20OfInterest": [],
                     "method": "depositETH",
-                    "plugin": "Boilerplate"
+                    "plugin": "Ribbon"
 		        }
 	        }
 	    },
@@ -76,15 +63,15 @@
                 "0xf6326fb3": {
                     "erc20OfInterest": [],
                     "method": "depositETH",
-                    "plugin": "Boilerplate"
+                    "plugin": "Ribbon"
 		        },
                 "0x31807e42": {
                     "erc20OfInterest": [],
                     "method": "depositYieldToken",
-                    "plugin": "Boilerplate"
+                    "plugin": "Ribbon"
 		        }
 	        }
 	    }
     ],
-    "name": "Boilerplate"
+    "name": "Ribbon"
 }

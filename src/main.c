@@ -22,11 +22,8 @@
 #include "os.h"
 #include "cx.h"
 
-#include "boilerplate_plugin.h"
+#include "ribbon_plugin.h"
 
-// List of selectors supported by this plugin.
-// EDIT THIS: Adapt the variable names and change the `0x` values to match your selectors.
-static const uint32_t SWAP_EXACT_ETH_FOR_TOKENS_SELECTOR = 0x7ff36ab5;
 // for vaults that calls depositETH()
 static const uint32_t DEPOSIT_ETH_SELECTOR = 0xf6326fb3;
 // for vaults that calls deposit()
@@ -37,10 +34,9 @@ static const uint32_t DEPOSIT_YIELD_TOKEN_SELECTOR = 0x31807e42;
 // Array of all the different boilerplate selectors. Make sure this follows the same order as the
 // enum defined in `boilerplate_plugin.h`
 // EDIT THIS: Use the names of the array declared above.
-const uint32_t BOILERPLATE_SELECTORS[NUM_SELECTORS] = {SWAP_EXACT_ETH_FOR_TOKENS_SELECTOR,
-                                                       DEPOSIT_SELECTOR,
-                                                       DEPOSIT_ETH_SELECTOR,
-                                                       DEPOSIT_YIELD_TOKEN_SELECTOR};
+const uint32_t RIBBON_SELECTORS[NUM_SELECTORS] = {DEPOSIT_SELECTOR,
+                                                  DEPOSIT_ETH_SELECTOR,
+                                                  DEPOSIT_YIELD_TOKEN_SELECTOR};
 
 const vault_address_ticker_t CONTRACT_ADDRESS_COLLECTION[NUM_VAULT_ADDRESS_COLLECTION] = {
     {{0xe6, 0x31, 0x51, 0xa0, 0xed, 0x4e, 0x5f, 0xaf, 0xdc, 0x95,
