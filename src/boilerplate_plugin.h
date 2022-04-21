@@ -6,7 +6,7 @@
 
 // Number of selectors defined in this plugin. Should match the enum `selector_t`.
 // EDIT THIS: Put in the number of selectors your plugin is going to support.
-#define NUM_SELECTORS 3
+#define NUM_SELECTORS 4
 
 // Name of the plugin.
 // EDIT THIS: Replace with your plugin name.
@@ -30,6 +30,7 @@ typedef enum {
     SWAP_EXACT_ETH_FOR_TOKENS = 0,
     DEPOSIT,
     DEPOSIT_ETH,
+    DEPOSIT_YIELD_TOKEN
 } selector_t;
 
 // ===== DATA =====

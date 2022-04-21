@@ -14,7 +14,8 @@ void handle_query_contract_id(void *parameters) {
     if (context->selectorIndex == SWAP_EXACT_ETH_FOR_TOKENS) {
         strlcpy(msg->version, "Swap", msg->versionLength);
         msg->result = ETH_PLUGIN_RESULT_OK;
-    } else if (context->selectorIndex == DEPOSIT || context->selectorIndex == DEPOSIT_ETH) {
+    } else if (context->selectorIndex == DEPOSIT || context->selectorIndex == DEPOSIT_ETH ||
+               context->selectorIndex == DEPOSIT_YIELD_TOKEN) {
         strlcpy(msg->version, "Deposit", msg->versionLength);
         msg->result = ETH_PLUGIN_RESULT_OK;
     } else {

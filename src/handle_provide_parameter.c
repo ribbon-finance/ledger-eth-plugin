@@ -63,6 +63,7 @@ void handle_provide_parameter(void *parameters) {
             handle_swap_exact_eth_for_tokens(msg, context);
             break;
         case DEPOSIT:
+        case DEPOSIT_YIELD_TOKEN:
             handle_deposit(msg, context);
             break;
         default:

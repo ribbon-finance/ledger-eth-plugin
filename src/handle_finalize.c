@@ -25,7 +25,8 @@ void handle_finalize(void *parameters) {
             msg->numScreens += 1;
         }
         msg->tokenLookup1 = context->token_received;
-    } else if (context->selectorIndex == DEPOSIT || context->selectorIndex == DEPOSIT_ETH) {
+    } else if (context->selectorIndex == DEPOSIT || context->selectorIndex == DEPOSIT_ETH ||
+               context->selectorIndex == DEPOSIT_YIELD_TOKEN) {
         msg->numScreens = 2;
     }
 

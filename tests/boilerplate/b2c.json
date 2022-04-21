@@ -68,6 +68,22 @@
                     "plugin": "Boilerplate"
 		        }
 	        }
+	    },
+        {
+            "address": "0x53773e034d9784153471813dacaff53dbbb78e8c",
+            "contractName": "RibbonSTETHThetaVault",
+            "selectors": {
+                "0xf6326fb3": {
+                    "erc20OfInterest": [],
+                    "method": "depositETH",
+                    "plugin": "Boilerplate"
+		        },
+                "0x31807e42": {
+                    "erc20OfInterest": [],
+                    "method": "depositYieldToken",
+                    "plugin": "Boilerplate"
+		        }
+	        }
 	    }
     ],
     "name": "Boilerplate"

@@ -49,6 +49,7 @@ void handle_init_contract(void *parameters) {
             context->next_param = MIN_AMOUNT_RECEIVED;
             break;
         case DEPOSIT:
+        case DEPOSIT_YIELD_TOKEN:
             context->next_param = DEPOSIT_AMOUNT;
             break;
         case DEPOSIT_ETH:

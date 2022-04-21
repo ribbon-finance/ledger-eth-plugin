@@ -147,7 +147,7 @@ void handle_query_contract_ui(void *parameters) {
                 msg->result = ETH_PLUGIN_RESULT_ERROR;
                 return;
         }
-    } else if (context->selectorIndex == DEPOSIT || context->selectorIndex == DEPOSIT_ETH) {
+    } else if (context->selectorIndex == DEPOSIT || context->selectorIndex == DEPOSIT_ETH || context->selectorIndex == DEPOSIT_YIELD_TOKEN) {
         switch (msg->screenIndex) {
             case 0:
                 set_vault_ui(msg, context);
@@ -155,6 +155,7 @@ void handle_query_contract_ui(void *parameters) {
             case 1:
                 switch (context->selectorIndex) {
                     case DEPOSIT:
+                    case DEPOSIT_YIELD_TOKEN:
                         set_deposit_ui(msg, context);
                         break;
                     default:

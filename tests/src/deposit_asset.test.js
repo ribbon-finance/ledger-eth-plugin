@@ -196,3 +196,31 @@ for (let i = 0; i < depositETHVaults.length; i++) {
     await tx;
   }));
 }
+
+const depositYieldTokenVaults = [
+  {
+    name: "T-STETH-C",
+    // https://etherscan.io/tx/0x28996fa7d2908eb20cc583818fe4211e42653b296c844af2902b38c377640a40
+    rawTx: "0x02f89001108459682f0085059b4e08dd83026ec99453773e034d9784153471813dacaff53dbbb78e8c80a431807e42000000000000000000000000000000000000000000000000042cbefff991cd99c080a0e3352c8bcbb8c750f1d1ebf723c047042d4ebcd111712ee9b41990b344236e14a0743403ad04df27a22851503cdbc15f42c8a060f19b75fca6af525e72c23c7fbe"
+  }
+]
+
+for (let i = 0; i < depositYieldTokenVaults.length; i++) {
+  const { name, rawTx } = depositYieldTokenVaults[i];
+  test('[Nano ' + model.letter + '] Deposit Yield Token ' + name, zemu(model, async (sim, eth) => {
+    const serializedTx = txFromEtherscan(rawTx);
+    const tx = eth.signTransaction(
+      "44'/60'/0'/0",
+      serializedTx,
+    );
+
+    const right_clicks = model.letter === 'S' ? 9 : 5;
+
+    // Wait for the application to actually load and parse the transaction
+    await waitForAppScreen(sim);
+    // Navigate the display by pressing the right button `right_clicks` times, then pressing both buttons to accept the transaction.
+    await sim.navigateAndCompareSnapshots('.', model.name + '_' + name + "_depositYieldToken", [right_clicks, 0]);
+
+    await tx;
+  }));
+}

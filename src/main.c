@@ -31,13 +31,16 @@ static const uint32_t SWAP_EXACT_ETH_FOR_TOKENS_SELECTOR = 0x7ff36ab5;
 static const uint32_t DEPOSIT_ETH_SELECTOR = 0xf6326fb3;
 // for vaults that calls deposit()
 static const uint32_t DEPOSIT_SELECTOR = 0xb6b55f25;
+// for vaults that calls depositYieldToken()
+static const uint32_t DEPOSIT_YIELD_TOKEN_SELECTOR = 0x31807e42;
 
 // Array of all the different boilerplate selectors. Make sure this follows the same order as the
 // enum defined in `boilerplate_plugin.h`
 // EDIT THIS: Use the names of the array declared above.
 const uint32_t BOILERPLATE_SELECTORS[NUM_SELECTORS] = {SWAP_EXACT_ETH_FOR_TOKENS_SELECTOR,
                                                        DEPOSIT_SELECTOR,
-                                                       DEPOSIT_ETH_SELECTOR};
+                                                       DEPOSIT_ETH_SELECTOR,
+                                                       DEPOSIT_YIELD_TOKEN_SELECTOR};
 
 const vault_address_ticker_t CONTRACT_ADDRESS_COLLECTION[NUM_VAULT_ADDRESS_COLLECTION] = {
     {{0xe6, 0x31, 0x51, 0xa0, 0xed, 0x4e, 0x5f, 0xaf, 0xdc, 0x95,
@@ -45,8 +48,8 @@ const vault_address_ticker_t CONTRACT_ADDRESS_COLLECTION[NUM_VAULT_ADDRESS_COLLE
      "T-AAVE-C",
      "AAVE ",
      18},
-    {{0x25, 0x75, 0x18, 0x53, 0xEa, 0xb4, 0xD0, 0xeB, 0x36, 0x52, 
-      0xB5, 0xeB, 0x6e, 0xcB, 0x10, 0x2A, 0x27, 0x89, 0x64, 0x4B},
+    {{0x25, 0x75, 0x18, 0x53, 0xea, 0xb4, 0xd0, 0xeb, 0x36, 0x52,
+      0xb5, 0xeb, 0x6e, 0xcb, 0x10, 0x2a, 0x27, 0x89, 0x64, 0x4b},
      "T-ETH-C",
      "ETH ",
      18},
