@@ -10,12 +10,6 @@ static int find_selector(uint32_t selector, const uint32_t *selectors, size_t n,
     return -1;
 }
 
-static void handle_deposit_eth(ethPluginInitContract_t *msg, context_t *context) {
-    copy_parameter(context->deposit_amount,
-                    msg->pluginSharedRO->txContent->value.value,
-                    sizeof(context->deposit_amount));
-}
-
 // Called once to init.
 void handle_init_contract(void *parameters) {
     // Cast the msg to the type of structure we expect (here, ethPluginInitContract_t).
@@ -58,8 +52,6 @@ void handle_init_contract(void *parameters) {
             context->next_param = DEPOSIT_AMOUNT;
             break;
         case DEPOSIT_ETH:
-            handle_deposit_eth(msg, context);
-            context->next_param = UNEXPECTED_PARAMETER;
             break;
         // Keep this
         default:

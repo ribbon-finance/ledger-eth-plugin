@@ -78,9 +78,6 @@ static void set_vault_ui(ethQueryContractUI_t *msg, context_t *context) {
 }
 
 static void set_deposit_ui(ethQueryContractUI_t *msg, context_t *context) {
-    // strlcpy(msg->title, "DEPOSIT", msg->titleLength);
-    // strlcpy(msg->msg, "AAVE 69.69", msg->msgLength);
-
     strlcpy(msg->title, "Deposit", msg->titleLength);
 
     // Defaults to ETH if no vault found.
@@ -101,6 +98,19 @@ static void set_deposit_ui(ethQueryContractUI_t *msg, context_t *context) {
 
     amountToString(context->deposit_amount,
                    sizeof(context->deposit_amount),
+                   decimals,
+                   ticker,
+                   msg->msg,
+                   msg->msgLength);
+}
+
+static void set_deposit_eth_ui(ethQueryContractUI_t *msg, context_t *context) {
+    strlcpy(msg->title, "Deposit", msg->titleLength);
+    uint8_t decimals = WEI_TO_ETHER;
+    char ticker[MAX_TICKER_LEN] = "ETH ";
+
+    amountToString(msg->pluginSharedRO->txContent->value.value,
+                   msg->pluginSharedRO->txContent->value.length,
                    decimals,
                    ticker,
                    msg->msg,
@@ -143,8 +153,14 @@ void handle_query_contract_ui(void *parameters) {
                 set_vault_ui(msg, context);
                 break;
             case 1:
-                set_deposit_ui(msg, context);
-                break;
+                switch (context->selectorIndex) {
+                    case DEPOSIT:
+                        set_deposit_ui(msg, context);
+                        break;
+                    default:
+                        set_deposit_eth_ui(msg, context);
+                        break;
+                }
             // Keep this
             default:
                 PRINTF("Received an invalid screenIndex\n");
