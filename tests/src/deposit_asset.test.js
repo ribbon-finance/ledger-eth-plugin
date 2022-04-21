@@ -74,7 +74,9 @@ const depositYieldTokenVaults = [
   }
 ]
 
-nano_models.forEach(function (model) {
+// ONLY TEST FOR NANOS FOR NOW
+const models = [nano_models[0]]
+models.forEach(function (model) {
   for (let i = 0; i < depositVaults.length; i++) {
     const { name, rawTx, rightClicks } = depositVaults[i];
     test('[Nano ' + model.letter + '] Deposit ' + name, zemu(model, async (sim, eth) => {
