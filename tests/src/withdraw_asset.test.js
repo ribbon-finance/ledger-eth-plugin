@@ -3,58 +3,126 @@ import "regenerator-runtime/runtime";
 import { waitForAppScreen, zemu, nano_models, txFromEtherscan } from './test.fixture';
 
 const withdrawVaults = [
-  // {
-  //   name: "T-AAVE-C",
-  //   // https://etherscan.io/tx/0xc72cb565ec57db33a2bc689319c0872738c37cce5c92c3d71e7b776f13bf5987
-  //   rawTx: "0x02f892018201c58459682f00850a22bc93d18303b62394e63151a0ed4e5fafdc951d877102cf0977abd36580a4b6b55f250000000000000000000000000000000000000000000000038252536bd64eebebc001a0096fe1ddb48a9e927cada2c03b9df35b6012f3fbff951025e44b5ac3ad5d77f1a04dcd0366fe2a03b52f180123a568bd2c48036875f90565094aad4995fe36efd1",
-  //   rightClicks: {
-  //     S: 9,
-  //     X: 5
-  //   }
-  // },
-  // {
-  //   name: "T-WBTC-C",
-  //   // https://etherscan.io/tx/0xad4cc5484bdd68256ff7a987b85678886f0108a2fbe4f1f96f7b8786fd7c9213
-  //   rawTx: "0x02f89001338459682f0085062e1ee4f483015c439465a833afdc250d9d38f8cd9bc2b1e3132db13b2f80a4b6b55f250000000000000000000000000000000000000000000000000000000000121731c001a0e4a295c678f181da338d48ae336a6e5d356524e61c95eb45021f17667c6ca7eaa07784b458b417f85a6326b803fb6af784b5d2f7ced9fa917dc5b2e80b022f5bb0",
-  //   rightClicks: {
-  //     S: 7,
-  //     X: 5
-  //   }
-  // },
-  // {
-  //   name: "T-APE-C",
-  //   // https://etherscan.io/tx/0x12ebfdfbb543054a4d9b93d73de3e8e3bcc772a879b510f29a8e080c5607093b
-  //   rawTx: "0x02f89001148459682f0085078c10e012830197b394c0cf10dd710aefb209d9dc67bc746510ffd98a5380a4b6b55f250000000000000000000000000000000000000000000004ee5d807432da1bd2e9c080a0017799d2d1e9680f532ccd0257e2ca54d1e020d6c84a9b27da7ce3b54b3c2d89a03d51ae1426f0b81ccead49fb47b498dfd8617339b3d3139e1c04545bdfde015b",
-  //   rightClicks: {
-  //     S: 8,
-  //     X: 5
-  //   }
-  // },
-  // {
-  //   name: "T-yvUSDC-P-ETH",
-  //   // https://etherscan.io/tx/0x0c557ee26b4777a2c3c5e33863ca8fff16066976e15e10cbd6d1b04b2e971f3c
-  //   rawTx: "0x02f89001318459682f008506fc23ac0083026b3e94cc323557c71c0d1d20a1861dc69c06c5f3cc962480a4b6b55f25000000000000000000000000000000000000000000000000000000174876e800c080a08931d39ce67a37f80a97b061b455c7a646defc2ba15bbfe8df56fe1f843c4445a034516babda81686b716b2efb9a783a7bea7ac34ccebdbbcd673658b09b33e0cf",
-  //   rightClicks: {
-  //     S: 5,
-  //     X: 5
-  //   }
-  // },
-  // {
-  //   name: "T-ETH-C",
-  //   // https://etherscan.io/tx/0x5a7be6a721aded0f6bc4166a1fc4d743db5a3707abe04b8386312c40fba0a68f
-  //   rawTx: "0x02f878010f8459682f008504356baebe830176d39425751853eab4d0eb3652b5eb6ecb102a2789644b881c4a8e71ff8941f184f6326fb3c080a0e4fbc53114cd2af57274686e2b4c212f1b2509b8a0d03c93a83ca962ecdc7412a00857072724e4fd09fb09c0b2275e6d13d32e444963f335b75f290c81d880e9fb",
-  //   rightClicks: {
-  //     S: 9,
-  //     X: 5
-  //   }
-  // },
+  {
+    name: "T-AAVE-C",
+    minEthOut: false,
+
+    initiateWithdraw: {
+      // https://etherscan.io/tx/0xe0bb7d4f056a2243c8e44efc03c379b2d4e3ba7e361bc8ae1e7d649f8f2fd134
+      rawTx: "0x02f892018205ad8459682f0085064f492f008301c2ad94e63151a0ed4e5fafdc951d877102cf0977abd36580a47e108d52000000000000000000000000000000000000000000000014fb4b448488f63306c001a0da09ea38166f6d406c88c1b395ba71b3519ef8003a99c78ac460091cdb17b4d6a02f624bf04e7d7d5acb24a9badc8e68884a1e32fae8c67ff24d99dd64f3271de9",
+      rightClicks: {
+        S: 7,
+        X: 5
+      }
+    },
+    completeWithdraw: {
+      minEthOut: false,
+      // https://etherscan.io/tx/0x26fe42c9fc93bf4315e688b5883adb13c8bfecb09962503d6fc610c0bd255be0
+      rawTx: "0x02f87001178459682f00850da14e413f8303f86994e63151a0ed4e5fafdc951d877102cf0977abd3658084f756fa21c001a02cf54155a006ca9390c3f49c892162fb8a3d768e89859f280df8b963e640c9cfa04021175a4b44284612f025c066cc6ac779df564fe2484136472b0f732aa4adba",
+      rightClicks: {
+        S: 6,
+        X: 3
+      }
+    }
+  },
+  {
+    name: "T-WBTC-C",
+    initiateWithdraw: {
+      // https://etherscan.io/tx/0xf4efe31e1aa9b3a06bb45d3d2f892228c15c87507b9b95d8b461390f5d3b3333
+      rawTx: "0x02f89001728459682f008504939402ab83017e8a9465a833afdc250d9d38f8cd9bc2b1e3132db13b2f80a47e108d52000000000000000000000000000000000000000000000000000000000007da15c080a0269a65e900438ba189232e458cf8fa95849a12dd5c401e230e9c0101cb12903ba0125d18d3606e9575561a7ecfb026a211d2a8518009ef106ce3932632d1c3ed18",
+      rightClicks: {
+        S: 8,
+        X: 5
+      }
+    },
+    completeWithdraw: {
+      minEthOut: false,
+      // https://etherscan.io/tx/0x1ca77b7daa263cbb2a80152ae1da9200e4f689d30d5f4d806a68e7ba06d64046
+      rawTx: "0x02f870012d8459682f008504e3b292008301b1d59465a833afdc250d9d38f8cd9bc2b1e3132db13b2f8084f756fa21c080a08831c4cacee18f7fcfe67c3317f3eb7bd9ff7b2c0b73f62cf04847f0c5dae763a038d4340246ebeafa04356b150e97c02d37cc22a11ee6ecbb0ef666572805044a",
+      rightClicks: {
+        S: 4,
+        X: 2
+      }
+    }
+  },
+  {
+    name: "T-APE-C",
+    initiateWithdraw: {
+      // https://etherscan.io/tx/0xa019cbc1d7c6fb40f37b09e85cb657aea2f305c0339b17a237d38fbcb0fbb148
+      rawTx: "0x02f8910181968459682f00850f27b42a628301c2ad94c0cf10dd710aefb209d9dc67bc746510ffd98a5380a47e108d520000000000000000000000000000000000000000000000355ae763a613a54d43c080a0317b875b3cc7c04d7d5dbb6c62d6dd10c89db646977176214cf75e1353e5285da020ef066b97bc4745f87803f8beef4804aaeaa4587e5ac78887ec47a335dde823",
+      rightClicks: {
+        S: 9,
+        X: 5
+      }
+    },
+    completeWithdraw: {
+      minEthOut: false,
+      // https://etherscan.io/tx/0xe09c94bb678ce13f811426ab3a90233f7d96bf7fb81d95dda45e75c3aedeb1e8
+      rawTx: "0x02f8720182043f8459682f00851a4027db0f830162aa94c0cf10dd710aefb209d9dc67bc746510ffd98a538084f756fa21c001a0c9d6cbb90fe6d6124a153942d3f56b93ea070f7aae8f584f5b89f8618405dbe2a03fea2eef1408de31e950d3ae96d37b72e199edb28fad25db4818494f737735a3",
+      rightClicks: {
+        S: 6,
+        X: 4
+      }
+    }
+  },
+  {
+    name: "T-yvUSDC-P-ETH",
+    initiateWithdraw: {
+      // https://etherscan.io/tx/0xaf4fab7418c0feaad7d94dc50334d941a62b5a59627a291af2274dc58877bb66
+      rawTx: "0xf88946850c92a69c008301c29494cc323557c71c0d1d20a1861dc69c06c5f3cc962480a47e108d5200000000000000000000000000000000000000000000000000000077033d4aad26a0b99c5984e2bb26a27db4e1c4e55d88f56e551077f064700fb3ceaeb21ab21821a057c8d3e4591e6fc6d7a5ad9fbffe026c9a22153747f0ab20f2b71d118aca6f6a",
+      rightClicks: {
+        S: 6,
+        X: 3
+      }
+    },
+    completeWithdraw: {
+      minEthOut: false,
+      // https://etherscan.io/tx/0xa5e2b07c1ff61f4a7642873fba09876ce6c3584a5c4126ba81f709add227ed0e
+      rawTx: "0x02f872018202de8459682f00851174aaeacb83026d2d94cc323557c71c0d1d20a1861dc69c06c5f3cc96248084f756fa21c001a0ffe31698a880bf99489515c1ec5df88dc7405c62776a236fc946d16a5b01809ba0129e8f7d94e080dacfe684fa03422653f2fd2caf9eead0bb787de7f6dc1e567e",
+      rightClicks: {
+        S: 6,
+        X: 4
+      }
+    }
+  },
+  {
+    name: "T-ETH-C",
+    initiateWithdraw: {
+      // https://etherscan.io/tx/0x826a86a286b984840f077863db5b204acec37faa22c35b87a2469f921a61fc5b
+      rawTx: "0x02f89001178459682f008508255cef948301c2a19425751853eab4d0eb3652b5eb6ecb102a2789644b80a47e108d52000000000000000000000000000000000000000000000000069e9b658a7aa86ec001a0df453708cf585a8e6659eaeb6c09af2149db78da91e1633fd15afbbf0f4ecd30a0685e202835fdede2dd7f94820ab7f1108bb6e8d92eb8061bb6f7f45a2eb40614",
+      rightClicks: {
+        S: 9,
+        X: 5
+      }
+    },
+    completeWithdraw: {
+      minEthOut: false,
+      // https://etherscan.io/tx/0xd240b3ea6883e7e35b479043b69b49f3440cfc25a78e649af990b8fe86d7cb3f
+      rawTx: "0x02f870013e8459682f0085083f0cfee183017daf9425751853eab4d0eb3652b5eb6ecb102a2789644b8084f756fa21c001a0fe0281bee978164facc5662eb422848777ba5db179c9ace51f77ec24bc498c8da04ef395cb2ac0159e445821d9ccf80dfccae1ce366cd8c6a769225305f217f965",
+      rightClicks: {
+        S: 6,
+        X: 2
+      }
+    }
+  },
   {
     name: "T-STETH-C",
-    // https://etherscan.io/tx/0x96a58a8cf63f2ead24f54a412c3b763fe49ede3c24e5a14f79f702a64a72f58c
-    rawTx: "0x02f892018202ca8459682f008518f17784e98301480d9453773e034d9784153471813dacaff53dbbb78e8c80a47e108d52000000000000000000000000000000000000000000000000b8f9b0dc11d8813ac001a0d783ab7c271edea387864dfad08d05d5f293a5ec3c4a1229d4339c4a9c609c73a064075b625f4163fdb913ed6be18359360ef5f0fe4f14848c6296144a9d917ec8",
-    rightClicks: {
-      S: 7,
-      X: 5
+    initiateWithdraw: {
+      // https://etherscan.io/tx/0x2fb944af8dd7d30c01585f9f5b99df5591d007249dd8fc1a14af648532226864
+      rawTx: "0x02f8910181c58459682f00850cc07d75368301c28b9453773e034d9784153471813dacaff53dbbb78e8c80a47e108d5200000000000000000000000000000000000000000000000001d343de4169a421c080a09e9ccb59ee46b299cfbdcc8bd592b47600fc09b9beab31f62aa414594c17e14da034d16d6362cb0a2a5436de5bdb4fc147dd7fb1cc2dd9a12f4cd4c12bc1e8261a",
+      rightClicks: {
+        S: 8,
+        X: 5
+      }
+    },
+    completeWithdraw: {
+      minEthOut: true,
+      // https://etherscan.io/tx/0x4109e21f3282d2db736afebd855bc43e0fb9270a90bc976454ed2f27b49217a8
+      rawTx: "0x02f89001168459682f00850ea540680883061a809453773e034d9784153471813dacaff53dbbb78e8c80a42087ed5c0000000000000000000000000000000000000000000000007062c31fdd9c87f8c001a0763c6a82b91f9ed5d9320ab014ea8aef32600625499d68df99811c1656401217a0694e3b656e51bd578fd1dbbf76829ca4f9841b664558817400b74179081ff8c5",
+      rightClicks: {
+        S: 7,
+        X: 4
+      }
     }
   },
 ]
@@ -63,17 +131,21 @@ const withdrawVaults = [
 const models = [nano_models[0]]
 models.forEach(function (model) {
   for (let i = 0; i < withdrawVaults.length; i++) {
-    const { name, rawTx, rightClicks } = withdrawVaults[i];
+    const {
+      name,
+      initiateWithdraw,
+      completeWithdraw,
+    } = withdrawVaults[i];
 
     // INITIATE WITHDRAWAL
     test('[Nano ' + model.letter + '] Initiate Withdraw ' + name, zemu(model, async (sim, eth) => {
-      const serializedTx = txFromEtherscan(rawTx);
+      const serializedTx = txFromEtherscan(initiateWithdraw.rawTx);
       const tx = eth.signTransaction(
         "44'/60'/0'/0",
         serializedTx,
       );
 
-      const right_clicks = rightClicks[model.letter];
+      const right_clicks = initiateWithdraw.rightClicks[model.letter];
 
       // Wait for the application to actually load and parse the transaction
       await waitForAppScreen(sim);
@@ -84,6 +156,29 @@ models.forEach(function (model) {
     }));
 
     // COMPLETE WITHDRAWAL
+    const completeWithdrawTitle = completeWithdraw.minEthOut
+      ? "Complete Withdraw With Min ETH Out"
+      : "Complete Withdraw"
+    const completeWithdrawSnapshot = completeWithdraw.minEthOut
+      ? "_complete_withdraw_eth_min_out"
+      : "_complete_withdraw"
+
+    test('[Nano ' + model.letter + '] ' + completeWithdrawTitle + ' ' + name, zemu(model, async (sim, eth) => {
+      const serializedTx = txFromEtherscan(completeWithdraw.rawTx);
+      const tx = eth.signTransaction(
+        "44'/60'/0'/0",
+        serializedTx,
+      );
+
+      const right_clicks = completeWithdraw.rightClicks[model.letter];
+
+      // Wait for the application to actually load and parse the transaction
+      await waitForAppScreen(sim);
+      // Navigate the display by pressing the right button `right_clicks` times, then pressing both buttons to accept the transaction.
+      await sim.navigateAndCompareSnapshots('.', model.name + '_' + name + completeWithdrawSnapshot, [right_clicks, 0]);
+
+      await tx;
+    }));
   }
 });
 

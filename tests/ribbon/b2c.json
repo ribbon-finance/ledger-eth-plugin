@@ -15,7 +15,7 @@
                     "method": "initiateWithdraw",
                     "plugin": "Ribbon"
                 },
-                "0x2087ed5c": {
+                "0xf756fa21": {
                     "erc20OfInterest": [],
                     "method": "completeWithdraw",
                     "plugin": "Ribbon"
@@ -36,7 +36,7 @@
                     "method": "initiateWithdraw",
                     "plugin": "Ribbon"
                 },
-                "0x2087ed5c": {
+                "0xf756fa21": {
                     "erc20OfInterest": [],
                     "method": "completeWithdraw",
                     "plugin": "Ribbon"
@@ -57,7 +57,7 @@
                     "method": "initiateWithdraw",
                     "plugin": "Ribbon"
                 },
-                "0x2087ed5c": {
+                "0xf756fa21": {
                     "erc20OfInterest": [],
                     "method": "completeWithdraw",
                     "plugin": "Ribbon"
@@ -78,7 +78,7 @@
                     "method": "initiateWithdraw",
                     "plugin": "Ribbon"
                 },
-                "0x2087ed5c": {
+                "0xf756fa21": {
                     "erc20OfInterest": [],
                     "method": "completeWithdraw",
                     "plugin": "Ribbon"
@@ -99,7 +99,7 @@
                     "method": "initiateWithdraw",
                     "plugin": "Ribbon"
                 },
-                "0x2087ed5c": {
+                "0xf756fa21": {
                     "erc20OfInterest": [],
                     "method": "completeWithdraw",
                     "plugin": "Ribbon"

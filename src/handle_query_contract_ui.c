@@ -86,6 +86,19 @@ static void set_initiate_withdraw_ui(ethQueryContractUI_t *msg, context_t *conte
                    msg->msgLength);
 }
 
+static void set_min_eth_out_ui(ethQueryContractUI_t *msg, context_t *context) {
+    strlcpy(msg->title, "Min. ETH Received", msg->titleLength);
+    uint8_t decimals = WEI_TO_ETHER;
+    char ticker[MAX_TICKER_LEN] = "ETH ";
+
+    amountToString(context->min_eth_out,
+                   sizeof(context->min_eth_out),
+                   decimals,
+                   ticker,
+                   msg->msg,
+                   msg->msgLength);
+}
+
 void handle_query_contract_ui(void *parameters) {
     ethQueryContractUI_t *msg = (ethQueryContractUI_t *) parameters;
     context_t *context = (context_t *) msg->pluginContext;
@@ -128,6 +141,31 @@ void handle_query_contract_ui(void *parameters) {
                 break;
             case 1:
                 set_initiate_withdraw_ui(msg, context);
+                break;
+            // Keep this
+            default:
+                PRINTF("Received an invalid screenIndex\n");
+                msg->result = ETH_PLUGIN_RESULT_ERROR;
+                return;
+        }
+    } else if (context->selectorIndex == COMPLETE_WITHDRAWAL) {
+        switch (msg->screenIndex) {
+            case 0:
+                set_vault_ui(msg);
+                break;
+            // Keep this
+            default:
+                PRINTF("Received an invalid screenIndex\n");
+                msg->result = ETH_PLUGIN_RESULT_ERROR;
+                return;
+        }
+    } else if (context->selectorIndex == COMPLETE_WITHDRAWAL_MIN_ETH_OUT) {
+        switch (msg->screenIndex) {
+            case 0:
+                set_vault_ui(msg);
+                break;
+            case 1:
+                set_min_eth_out_ui(msg, context);
                 break;
             // Keep this
             default:
