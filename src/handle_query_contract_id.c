@@ -15,6 +15,9 @@ void handle_query_contract_id(void *parameters) {
         context->selectorIndex == DEPOSIT_YIELD_TOKEN) {
         strlcpy(msg->version, "Deposit", msg->versionLength);
         msg->result = ETH_PLUGIN_RESULT_OK;
+    } else if (context->selectorIndex == INITIATE_WITHDRAWAL) {
+        strlcpy(msg->version, "Initiate Withdraw", msg->versionLength);
+        msg->result = ETH_PLUGIN_RESULT_OK;
     } else {
         PRINTF("Selector index: %d not supported\n", context->selectorIndex);
         msg->result = ETH_PLUGIN_RESULT_ERROR;

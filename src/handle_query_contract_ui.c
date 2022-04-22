@@ -1,6 +1,10 @@
 #include "ribbon_plugin.h"
 
-static void set_vault_ui(ethQueryContractUI_t *msg, context_t *context) {
+// static void get_ticker_decimals() {
+
+// }
+
+static void set_vault_ui(ethQueryContractUI_t *msg) {
     strlcpy(msg->title, "Vault", msg->titleLength);
     strlcpy(msg->msg, "Unknown", msg->msgLength);
 
@@ -22,7 +26,7 @@ static void set_deposit_ui(ethQueryContractUI_t *msg, context_t *context) {
 
     // Defaults to ETH if no vault found.
     uint8_t decimals = WEI_TO_ETHER;
-    char ticker[MAX_TICKER_LEN] = "ETH ";
+    char ticker[MAX_TICKER_LEN] = "??? ";
 
     vault_address_ticker_t *currentVault = NULL;
     for (uint8_t i = 0; i < NUM_VAULT_ADDRESS_COLLECTION; i++) {
@@ -44,13 +48,38 @@ static void set_deposit_ui(ethQueryContractUI_t *msg, context_t *context) {
                    msg->msgLength);
 }
 
-static void set_deposit_eth_ui(ethQueryContractUI_t *msg, context_t *context) {
+static void set_deposit_eth_ui(ethQueryContractUI_t *msg) {
     strlcpy(msg->title, "Deposit", msg->titleLength);
     uint8_t decimals = WEI_TO_ETHER;
     char ticker[MAX_TICKER_LEN] = "ETH ";
 
     amountToString(msg->pluginSharedRO->txContent->value.value,
                    msg->pluginSharedRO->txContent->value.length,
+                   decimals,
+                   ticker,
+                   msg->msg,
+                   msg->msgLength);
+}
+
+static void set_initiate_withdraw_ui(ethQueryContractUI_t *msg, context_t *context) {
+    strlcpy(msg->title, "Initiate Withdraw", msg->titleLength);
+    uint8_t decimals = WEI_TO_ETHER;
+    char ticker[MAX_TICKER_LEN] = "??? ";
+
+    vault_address_ticker_t *currentVault = NULL;
+    for (uint8_t i = 0; i < NUM_VAULT_ADDRESS_COLLECTION; i++) {
+        currentVault = (vault_address_ticker_t *) PIC(&CONTRACT_ADDRESS_COLLECTION[i]);
+        if (memcmp(currentVault->contract_address,
+                   msg->pluginSharedRO->txContent->destination,
+                   ADDRESS_LENGTH) == 0) {
+            decimals = currentVault->decimals;
+            strncpy(ticker, (char *) currentVault->vault_token_ticker, sizeof(ticker));
+            break;
+        }
+    }
+
+    amountToString(context->withdraw_shares_amount,
+                   sizeof(context->withdraw_shares_amount),
                    decimals,
                    ticker,
                    msg->msg,
@@ -74,7 +103,7 @@ void handle_query_contract_ui(void *parameters) {
         context->selectorIndex == DEPOSIT_YIELD_TOKEN) {
         switch (msg->screenIndex) {
             case 0:
-                set_vault_ui(msg, context);
+                set_vault_ui(msg);
                 break;
             case 1:
                 switch (context->selectorIndex) {
@@ -83,7 +112,7 @@ void handle_query_contract_ui(void *parameters) {
                         set_deposit_ui(msg, context);
                         break;
                     default:
-                        set_deposit_eth_ui(msg, context);
+                        set_deposit_eth_ui(msg);
                         break;
                 }
             // Keep this
@@ -92,5 +121,22 @@ void handle_query_contract_ui(void *parameters) {
                 msg->result = ETH_PLUGIN_RESULT_ERROR;
                 return;
         }
+    } else if (context->selectorIndex == INITIATE_WITHDRAWAL) {
+        switch (msg->screenIndex) {
+            case 0:
+                set_vault_ui(msg);
+                break;
+            case 1:
+                set_initiate_withdraw_ui(msg, context);
+                break;
+            // Keep this
+            default:
+                PRINTF("Received an invalid screenIndex\n");
+                msg->result = ETH_PLUGIN_RESULT_ERROR;
+                return;
+        }
+    } else {
+        PRINTF("Selector index: %d not supported\n", context->selectorIndex);
+        msg->result = ETH_PLUGIN_RESULT_ERROR;
     }
 }

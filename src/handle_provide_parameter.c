@@ -5,6 +5,12 @@ static void handle_deposit(ethPluginProvideParameter_t *msg, context_t *context)
     copy_parameter(context->deposit_amount, msg->parameter, sizeof(context->deposit_amount));
 }
 
+static void handle_initiate_withdraw(ethPluginProvideParameter_t *msg, context_t *context) {
+    copy_parameter(context->withdraw_shares_amount,
+                   msg->parameter,
+                   sizeof(context->withdraw_shares_amount));
+}
+
 void handle_provide_parameter(void *parameters) {
     ethPluginProvideParameter_t *msg = (ethPluginProvideParameter_t *) parameters;
     context_t *context = (context_t *) msg->pluginContext;
@@ -22,6 +28,9 @@ void handle_provide_parameter(void *parameters) {
         case DEPOSIT:
         case DEPOSIT_YIELD_TOKEN:
             handle_deposit(msg, context);
+            break;
+        case INITIATE_WITHDRAWAL:
+            handle_initiate_withdraw(msg, context);
             break;
         default:
             PRINTF("Selector Index not supported: %d\n", context->selectorIndex);

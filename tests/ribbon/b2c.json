@@ -9,7 +9,17 @@
                     "erc20OfInterest": [],
                     "method": "deposit",
                     "plugin": "Ribbon"
-		        }
+		        },
+                "0x7e108d52": {
+                    "erc20OfInterest": [],
+                    "method": "initiateWithdraw",
+                    "plugin": "Ribbon"
+                },
+                "0x2087ed5c": {
+                    "erc20OfInterest": [],
+                    "method": "completeWithdraw",
+                    "plugin": "Ribbon"
+                }
 	        }
 	    },
         {
@@ -20,7 +30,17 @@
                     "erc20OfInterest": [],
                     "method": "deposit",
                     "plugin": "Ribbon"
-		        }
+		        },
+                "0x7e108d52": {
+                    "erc20OfInterest": [],
+                    "method": "initiateWithdraw",
+                    "plugin": "Ribbon"
+                },
+                "0x2087ed5c": {
+                    "erc20OfInterest": [],
+                    "method": "completeWithdraw",
+                    "plugin": "Ribbon"
+                }
 	        }
 	    },
         {
@@ -31,7 +51,17 @@
                     "erc20OfInterest": [],
                     "method": "deposit",
                     "plugin": "Ribbon"
-		        }
+		        },
+                "0x7e108d52": {
+                    "erc20OfInterest": [],
+                    "method": "initiateWithdraw",
+                    "plugin": "Ribbon"
+                },
+                "0x2087ed5c": {
+                    "erc20OfInterest": [],
+                    "method": "completeWithdraw",
+                    "plugin": "Ribbon"
+                }
 	        }
 	    },
         {
@@ -42,7 +72,17 @@
                     "erc20OfInterest": [],
                     "method": "deposit",
                     "plugin": "Ribbon"
-		        }
+		        },
+                "0x7e108d52": {
+                    "erc20OfInterest": [],
+                    "method": "initiateWithdraw",
+                    "plugin": "Ribbon"
+                },
+                "0x2087ed5c": {
+                    "erc20OfInterest": [],
+                    "method": "completeWithdraw",
+                    "plugin": "Ribbon"
+                }
 	        }
 	    },
         {
@@ -53,7 +93,17 @@
                     "erc20OfInterest": [],
                     "method": "depositETH",
                     "plugin": "Ribbon"
-		        }
+		        },
+                "0x7e108d52": {
+                    "erc20OfInterest": [],
+                    "method": "initiateWithdraw",
+                    "plugin": "Ribbon"
+                },
+                "0x2087ed5c": {
+                    "erc20OfInterest": [],
+                    "method": "completeWithdraw",
+                    "plugin": "Ribbon"
+                }
 	        }
 	    },
         {
@@ -69,7 +119,17 @@
                     "erc20OfInterest": [],
                     "method": "depositYieldToken",
                     "plugin": "Ribbon"
-		        }
+		        },
+                "0x7e108d52": {
+                    "erc20OfInterest": [],
+                    "method": "initiateWithdraw",
+                    "plugin": "Ribbon"
+                },
+                "0x2087ed5c": {
+                    "erc20OfInterest": [],
+                    "method": "completeWithdraw",
+                    "plugin": "Ribbon"
+                }
 	        }
 	    }
     ],

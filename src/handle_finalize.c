@@ -18,6 +18,10 @@ void handle_finalize(void *parameters) {
     if (context->selectorIndex == DEPOSIT || context->selectorIndex == DEPOSIT_ETH ||
         context->selectorIndex == DEPOSIT_YIELD_TOKEN) {
         msg->numScreens = 2;
+    } else if (context->selectorIndex == INITIATE_WITHDRAWAL) {
+        msg->numScreens = 2;
+    } else {
+        msg->numScreens = 0;
     }
 
     msg->result = ETH_PLUGIN_RESULT_OK;

@@ -51,6 +51,9 @@ void handle_init_contract(void *parameters) {
             break;
         case DEPOSIT_ETH:
             break;
+        case INITIATE_WITHDRAWAL:
+            context->next_param = WITHDRAW_NUM_SHARES;
+            break;
         // Keep this
         default:
             PRINTF("Missing selectorIndex: %d\n", context->selectorIndex);
