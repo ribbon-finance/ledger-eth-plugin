@@ -1,9 +1,5 @@
 #include "ribbon_plugin.h"
 
-// static void get_ticker_decimals() {
-
-// }
-
 static void set_vault_ui(ethQueryContractUI_t *msg) {
     strlcpy(msg->title, "Vault", msg->titleLength);
     strlcpy(msg->msg, "Unknown", msg->msgLength);
