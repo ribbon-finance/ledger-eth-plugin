@@ -9,7 +9,7 @@
                     "erc20OfInterest": [],
                     "method": "deposit",
                     "plugin": "Ribbon"
-		        },
+                },
                 "0x7e108d52": {
                     "erc20OfInterest": [],
                     "method": "initiateWithdraw",
@@ -20,8 +20,8 @@
                     "method": "completeWithdraw",
                     "plugin": "Ribbon"
                 }
-	        }
-	    },
+            }
+        },
         {
             "address": "0x65a833afdc250d9d38f8cd9bc2b1e3132db13b2f",
             "contractName": "RibbonWBTCThetaVault",
@@ -30,7 +30,7 @@
                     "erc20OfInterest": [],
                     "method": "deposit",
                     "plugin": "Ribbon"
-		        },
+                },
                 "0x7e108d52": {
                     "erc20OfInterest": [],
                     "method": "initiateWithdraw",
@@ -41,8 +41,8 @@
                     "method": "completeWithdraw",
                     "plugin": "Ribbon"
                 }
-	        }
-	    },
+            }
+        },
         {
             "address": "0xc0cf10dd710aefb209d9dc67bc746510ffd98a53",
             "contractName": "RibbonAPEThetaVault",
@@ -51,7 +51,7 @@
                     "erc20OfInterest": [],
                     "method": "deposit",
                     "plugin": "Ribbon"
-		        },
+                },
                 "0x7e108d52": {
                     "erc20OfInterest": [],
                     "method": "initiateWithdraw",
@@ -62,8 +62,8 @@
                     "method": "completeWithdraw",
                     "plugin": "Ribbon"
                 }
-	        }
-	    },
+            }
+        },
         {
             "address": "0xcc323557c71c0d1d20a1861dc69c06c5f3cc9624",
             "contractName": "RibbonETHPutThetaVault",
@@ -72,7 +72,7 @@
                     "erc20OfInterest": [],
                     "method": "deposit",
                     "plugin": "Ribbon"
-		        },
+                },
                 "0x7e108d52": {
                     "erc20OfInterest": [],
                     "method": "initiateWithdraw",
@@ -83,8 +83,8 @@
                     "method": "completeWithdraw",
                     "plugin": "Ribbon"
                 }
-	        }
-	    },
+            }
+        },
         {
             "address": "0x25751853eab4d0eb3652b5eb6ecb102a2789644b",
             "contractName": "RibbonETHThetaVault",
@@ -93,7 +93,7 @@
                     "erc20OfInterest": [],
                     "method": "depositETH",
                     "plugin": "Ribbon"
-		        },
+                },
                 "0x7e108d52": {
                     "erc20OfInterest": [],
                     "method": "initiateWithdraw",
@@ -104,8 +104,8 @@
                     "method": "completeWithdraw",
                     "plugin": "Ribbon"
                 }
-	        }
-	    },
+            }
+        },
         {
             "address": "0x53773e034d9784153471813dacaff53dbbb78e8c",
             "contractName": "RibbonSTETHThetaVault",
@@ -114,12 +114,12 @@
                     "erc20OfInterest": [],
                     "method": "depositETH",
                     "plugin": "Ribbon"
-		        },
+                },
                 "0x31807e42": {
                     "erc20OfInterest": [],
                     "method": "depositYieldToken",
                     "plugin": "Ribbon"
-		        },
+                },
                 "0x7e108d52": {
                     "erc20OfInterest": [],
                     "method": "initiateWithdraw",
@@ -130,8 +130,8 @@
                     "method": "completeWithdraw",
                     "plugin": "Ribbon"
                 }
-	        }
-	    }
+            }
+        }
     ],
     "name": "Ribbon"
 }

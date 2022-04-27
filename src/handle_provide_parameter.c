@@ -11,10 +11,9 @@ static void handle_initiate_withdraw(ethPluginProvideParameter_t *msg, context_t
                    sizeof(context->withdraw_shares_amount));
 }
 
-static void handle_complete_withdrawal_min_eth_out(ethPluginProvideParameter_t *msg, context_t *context) {
-    copy_parameter(context->min_eth_out,
-                   msg->parameter,
-                   sizeof(context->min_eth_out));
+static void handle_complete_withdrawal_min_eth_out(ethPluginProvideParameter_t *msg,
+                                                   context_t *context) {
+    copy_parameter(context->min_eth_out, msg->parameter, sizeof(context->min_eth_out));
 }
 
 void handle_provide_parameter(void *parameters) {
