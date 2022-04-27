@@ -30,3 +30,4 @@ the code is compiled and tested on the latest version of the SDK.
 ## Formatting
 
 The C source code is expected to be formatted with `clang-format` 11.0.0 or higher.
+
