@@ -11,11 +11,6 @@ static void handle_initiate_withdraw(ethPluginProvideParameter_t *msg, context_t
                    sizeof(context->withdraw_shares_amount));
 }
 
-static void handle_complete_withdrawal_min_eth_out(ethPluginProvideParameter_t *msg,
-                                                   context_t *context) {
-    copy_parameter(context->min_eth_out, msg->parameter, sizeof(context->min_eth_out));
-}
-
 void handle_provide_parameter(void *parameters) {
     ethPluginProvideParameter_t *msg = (ethPluginProvideParameter_t *) parameters;
     context_t *context = (context_t *) msg->pluginContext;
@@ -38,9 +33,6 @@ void handle_provide_parameter(void *parameters) {
             handle_initiate_withdraw(msg, context);
             break;
         case COMPLETE_WITHDRAWAL:
-            break;
-        case COMPLETE_WITHDRAWAL_MIN_ETH_OUT:
-            handle_complete_withdrawal_min_eth_out(msg, context);
             break;
         default:
             PRINTF("Selector Index not supported: %d\n", context->selectorIndex);

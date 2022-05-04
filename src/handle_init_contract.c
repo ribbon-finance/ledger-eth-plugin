@@ -56,9 +56,6 @@ void handle_init_contract(void *parameters) {
             break;
         case COMPLETE_WITHDRAWAL:
             break;
-        case COMPLETE_WITHDRAWAL_MIN_ETH_OUT:
-            context->next_param = MIN_ETH_OUT;
-            break;
         // Keep this
         default:
             PRINTF("Missing selectorIndex: %d\n", context->selectorIndex);

@@ -22,8 +22,6 @@ void handle_finalize(void *parameters) {
         msg->numScreens = 2;
     } else if (context->selectorIndex == COMPLETE_WITHDRAWAL) {
         msg->numScreens = 1;
-    } else if (context->selectorIndex == COMPLETE_WITHDRAWAL_MIN_ETH_OUT) {
-        msg->numScreens = 2;
     } else {
         msg->numScreens = 0;
     }

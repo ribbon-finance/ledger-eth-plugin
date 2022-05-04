@@ -5,7 +5,7 @@
 #include <string.h>
 
 // Number of selectors defined in this plugin. Should match the enum `selector_t`.
-#define NUM_SELECTORS 6
+#define NUM_SELECTORS 5
 
 // Name of the plugin.
 #define PLUGIN_NAME "Ribbon Finance"
@@ -31,7 +31,6 @@ typedef enum {
     DEPOSIT_YIELD_TOKEN,
     INITIATE_WITHDRAWAL,
     COMPLETE_WITHDRAWAL,
-    COMPLETE_WITHDRAWAL_MIN_ETH_OUT
 } selector_t;
 
 // ===== DATA =====
@@ -41,8 +40,7 @@ typedef enum {
     PATH_LENGTH,
     UNEXPECTED_PARAMETER,
     DEPOSIT_AMOUNT,
-    WITHDRAW_NUM_SHARES,
-    MIN_ETH_OUT
+    WITHDRAW_NUM_SHARES
 } parameter;
 
 extern const uint32_t RIBBON_SELECTORS[NUM_SELECTORS];
@@ -58,7 +56,6 @@ typedef struct context_t {
 
     // Withdraw
     uint8_t withdraw_shares_amount[INT256_LENGTH];
-    uint8_t min_eth_out[INT256_LENGTH];
 
     // For parsing data.
     uint8_t next_param;  // Set to be the next param we expect to parse.

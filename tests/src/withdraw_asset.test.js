@@ -5,8 +5,6 @@ import { waitForAppScreen, zemu, nano_models, txFromEtherscan } from './test.fix
 const withdrawVaults = [
   {
     name: "T-AAVE-C",
-    minEthOut: false,
-
     initiateWithdraw: {
       // https://etherscan.io/tx/0xe0bb7d4f056a2243c8e44efc03c379b2d4e3ba7e361bc8ae1e7d649f8f2fd134
       rawTx: "0x02f892018205ad8459682f0085064f492f008301c2ad94e63151a0ed4e5fafdc951d877102cf0977abd36580a47e108d52000000000000000000000000000000000000000000000014fb4b448488f63306c001a0da09ea38166f6d406c88c1b395ba71b3519ef8003a99c78ac460091cdb17b4d6a02f624bf04e7d7d5acb24a9badc8e68884a1e32fae8c67ff24d99dd64f3271de9",
@@ -16,7 +14,6 @@ const withdrawVaults = [
       }
     },
     completeWithdraw: {
-      minEthOut: false,
       // https://etherscan.io/tx/0x26fe42c9fc93bf4315e688b5883adb13c8bfecb09962503d6fc610c0bd255be0
       rawTx: "0x02f87001178459682f00850da14e413f8303f86994e63151a0ed4e5fafdc951d877102cf0977abd3658084f756fa21c001a02cf54155a006ca9390c3f49c892162fb8a3d768e89859f280df8b963e640c9cfa04021175a4b44284612f025c066cc6ac779df564fe2484136472b0f732aa4adba",
       rightClicks: {
@@ -36,7 +33,6 @@ const withdrawVaults = [
       }
     },
     completeWithdraw: {
-      minEthOut: false,
       // https://etherscan.io/tx/0x1ca77b7daa263cbb2a80152ae1da9200e4f689d30d5f4d806a68e7ba06d64046
       rawTx: "0x02f870012d8459682f008504e3b292008301b1d59465a833afdc250d9d38f8cd9bc2b1e3132db13b2f8084f756fa21c080a08831c4cacee18f7fcfe67c3317f3eb7bd9ff7b2c0b73f62cf04847f0c5dae763a038d4340246ebeafa04356b150e97c02d37cc22a11ee6ecbb0ef666572805044a",
       rightClicks: {
@@ -56,7 +52,6 @@ const withdrawVaults = [
       }
     },
     completeWithdraw: {
-      minEthOut: false,
       // https://etherscan.io/tx/0xe09c94bb678ce13f811426ab3a90233f7d96bf7fb81d95dda45e75c3aedeb1e8
       rawTx: "0x02f8720182043f8459682f00851a4027db0f830162aa94c0cf10dd710aefb209d9dc67bc746510ffd98a538084f756fa21c001a0c9d6cbb90fe6d6124a153942d3f56b93ea070f7aae8f584f5b89f8618405dbe2a03fea2eef1408de31e950d3ae96d37b72e199edb28fad25db4818494f737735a3",
       rightClicks: {
@@ -76,7 +71,6 @@ const withdrawVaults = [
       }
     },
     completeWithdraw: {
-      minEthOut: false,
       // https://etherscan.io/tx/0xa5e2b07c1ff61f4a7642873fba09876ce6c3584a5c4126ba81f709add227ed0e
       rawTx: "0x02f872018202de8459682f00851174aaeacb83026d2d94cc323557c71c0d1d20a1861dc69c06c5f3cc96248084f756fa21c001a0ffe31698a880bf99489515c1ec5df88dc7405c62776a236fc946d16a5b01809ba0129e8f7d94e080dacfe684fa03422653f2fd2caf9eead0bb787de7f6dc1e567e",
       rightClicks: {
@@ -96,7 +90,6 @@ const withdrawVaults = [
       }
     },
     completeWithdraw: {
-      minEthOut: false,
       // https://etherscan.io/tx/0xd240b3ea6883e7e35b479043b69b49f3440cfc25a78e649af990b8fe86d7cb3f
       rawTx: "0x02f870013e8459682f0085083f0cfee183017daf9425751853eab4d0eb3652b5eb6ecb102a2789644b8084f756fa21c001a0fe0281bee978164facc5662eb422848777ba5db179c9ace51f77ec24bc498c8da04ef395cb2ac0159e445821d9ccf80dfccae1ce366cd8c6a769225305f217f965",
       rightClicks: {
@@ -116,11 +109,10 @@ const withdrawVaults = [
       }
     },
     completeWithdraw: {
-      minEthOut: true,
-      // https://etherscan.io/tx/0x4109e21f3282d2db736afebd855bc43e0fb9270a90bc976454ed2f27b49217a8
-      rawTx: "0x02f89001168459682f00850ea540680883061a809453773e034d9784153471813dacaff53dbbb78e8c80a42087ed5c0000000000000000000000000000000000000000000000007062c31fdd9c87f8c001a0763c6a82b91f9ed5d9320ab014ea8aef32600625499d68df99811c1656401217a0694e3b656e51bd578fd1dbbf76829ca4f9841b664558817400b74179081ff8c5",
+      // https://etherscan.io/tx/0x4ed59c74231358dac2fc2cf05aeb47122d6ae4241e371602e3531c2da1c29311
+      rawTx: "0x02f8700102843dec1da08509a9b9d8fd83061a809453773e034d9784153471813dacaff53dbbb78e8c8084f756fa21c001a0334580f84e69e041df24d9000293fa7a4503ec01bb01f22301ecc40cad99ef7ea00a97e7a78cd123e68c489b193f837bb4932f0714db7e9450e5a59e88d37e6519",
       rightClicks: {
-        S: 7,
+        S: 4,
         X: 4
       }
     }
@@ -156,12 +148,8 @@ models.forEach(function (model) {
     }));
 
     // COMPLETE WITHDRAWAL
-    const completeWithdrawTitle = completeWithdraw.minEthOut
-      ? "Complete Withdraw With Min ETH Out"
-      : "Complete Withdraw"
-    const completeWithdrawSnapshot = completeWithdraw.minEthOut
-      ? "_complete_withdraw_eth_min_out"
-      : "_complete_withdraw"
+    const completeWithdrawTitle = "Complete Withdraw"
+    const completeWithdrawSnapshot = "_complete_withdraw"
 
     test('[Nano ' + model.letter + '] ' + completeWithdrawTitle + ' ' + name, zemu(model, async (sim, eth) => {
       const serializedTx = txFromEtherscan(completeWithdraw.rawTx);

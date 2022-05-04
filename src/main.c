@@ -34,7 +34,6 @@ static const uint32_t DEPOSIT_YIELD_TOKEN_SELECTOR = 0x31807e42;
 // withdrawals
 static const uint32_t INITIATE_WITHDRAWAL_SELECTOR = 0x7e108d52;
 static const uint32_t COMPLETE_WITHDRAWAL_SELECTOR = 0xf756fa21;
-static const uint32_t COMPLETE_WITHDRAWAL_MIN_ETH_OUT_SELECTOR = 0x2087ed5c;
 
 // Array of all the different boilerplate selectors. Make sure this follows the same order as the
 // enum defined in `boilerplate_plugin.h`
@@ -43,8 +42,7 @@ const uint32_t RIBBON_SELECTORS[NUM_SELECTORS] = {DEPOSIT_SELECTOR,
                                                   DEPOSIT_ETH_SELECTOR,
                                                   DEPOSIT_YIELD_TOKEN_SELECTOR,
                                                   INITIATE_WITHDRAWAL_SELECTOR,
-                                                  COMPLETE_WITHDRAWAL_SELECTOR,
-                                                  COMPLETE_WITHDRAWAL_MIN_ETH_OUT_SELECTOR};
+                                                  COMPLETE_WITHDRAWAL_SELECTOR};
 
 const vault_address_ticker_t CONTRACT_ADDRESS_COLLECTION[NUM_VAULT_ADDRESS_COLLECTION] = {
     {{0xe6, 0x31, 0x51, 0xa0, 0xed, 0x4e, 0x5f, 0xaf, 0xdc, 0x95,
