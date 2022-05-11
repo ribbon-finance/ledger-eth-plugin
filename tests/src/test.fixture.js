@@ -13,7 +13,7 @@ const sim_options_nano = {
     ...DEFAULT_START_OPTIONS,
     logging: true,
     X11: true,
-    startDelay: 5000,
+    startDelay: 10000,
     startText: 'is ready'
 };
 
@@ -31,7 +31,7 @@ const nano_models: DeviceModel[] = [
 ];
 
 
-const boilerplateJSON = generate_plugin_config();
+const ribbonJSON = generate_plugin_config();
 
 const SPECULOS_ADDRESS = '0xFE984369CE3919AA7BB4F431082D027B4F8ED70C';
 const RANDOM_ADDRESS = '0xaaaabbbbccccddddeeeeffffgggghhhhiiiijjjj'
@@ -93,7 +93,7 @@ function zemu(device, func) {
             const eth = new Eth(transport);
             eth.setLoadConfig({
                 baseURL: null,
-                extraPlugins: boilerplateJSON,
+                extraPlugins: ribbonJSON,
             });
             await func(sim, eth);
         } finally {
