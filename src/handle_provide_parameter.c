@@ -5,7 +5,8 @@ static void handle_deposit(ethPluginProvideParameter_t *msg, context_t *context)
     copy_parameter(context->deposit_amount, msg->parameter, sizeof(context->deposit_amount));
 }
 
-static void handle_initiate_or_instant_withdraw(ethPluginProvideParameter_t *msg, context_t *context) {
+static void handle_initiate_or_instant_withdraw(ethPluginProvideParameter_t *msg,
+                                                context_t *context) {
     copy_parameter(context->withdraw_shares_amount,
                    msg->parameter,
                    sizeof(context->withdraw_shares_amount));
