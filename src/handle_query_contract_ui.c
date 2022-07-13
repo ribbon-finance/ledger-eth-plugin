@@ -57,8 +57,15 @@ static void set_deposit_eth_ui(ethQueryContractUI_t *msg) {
                    msg->msgLength);
 }
 
-static void set_initiate_withdraw_ui(ethQueryContractUI_t *msg, context_t *context) {
-    strlcpy(msg->title, "Initiate Withdraw", msg->titleLength);
+static void set_initiate_or_instant_withdraw_ui(ethQueryContractUI_t *msg,
+                                                context_t *context,
+                                                bool isInstant) {
+    if (isInstant) {
+        strlcpy(msg->title, "Instant Withdraw", msg->titleLength);
+    } else {
+        strlcpy(msg->title, "Initiate Withdraw", msg->titleLength);
+    }
+
     uint8_t decimals = WEI_TO_ETHER;
     char ticker[MAX_TICKER_LEN] = "??? ";
 
@@ -117,13 +124,15 @@ void handle_query_contract_ui(void *parameters) {
                 msg->result = ETH_PLUGIN_RESULT_ERROR;
                 return;
         }
-    } else if (context->selectorIndex == INITIATE_WITHDRAWAL) {
+    } else if (context->selectorIndex == INITIATE_WITHDRAWAL ||
+               context->selectorIndex == INSTANT_WITHDRAW) {
+        bool isInstant = context->selectorIndex == INSTANT_WITHDRAW;
         switch (msg->screenIndex) {
             case 0:
                 set_vault_ui(msg);
                 break;
             case 1:
-                set_initiate_withdraw_ui(msg, context);
+                set_initiate_or_instant_withdraw_ui(msg, context, isInstant);
                 break;
             // Keep this
             default:

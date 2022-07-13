@@ -5,7 +5,7 @@
 #include <string.h>
 
 // Number of selectors defined in this plugin. Should match the enum `selector_t`.
-#define NUM_SELECTORS 5
+#define NUM_SELECTORS 6
 
 // Name of the plugin.
 #define PLUGIN_NAME "Ribbon Finance"
@@ -29,6 +29,7 @@ typedef enum {
     DEPOSIT = 0,
     DEPOSIT_ETH,
     DEPOSIT_YIELD_TOKEN,
+    INSTANT_WITHDRAW,
     INITIATE_WITHDRAWAL,
     COMPLETE_WITHDRAWAL,
 } selector_t;

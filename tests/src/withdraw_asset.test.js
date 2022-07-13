@@ -13,6 +13,14 @@ const withdrawVaults = [
         X: 5
       }
     },
+    instantWithdraw: {
+      // https://etherscan.io/tx/0xaffd234459e82589db8dd157262e6c60475696026496984272f4c2818eb299af
+      rawTx: "0x02f890011784773594008513509bcf728303b4dd94e63151a0ed4e5fafdc951d877102cf0977abd36580a42775d01c00000000000000000000000000000000000000000000001130307758c8005adfc080a09ded7c8d42729992b19ea156889fcb039582a1ce5cea579afee746251220cafea024e23cec888240e36f037416a3536f8d54b9d988cf39721d02b3ca6e6a409783",
+      rightClicks: {
+        S: 7,
+        X: 5
+      }
+    },
     completeWithdraw: {
       // https://etherscan.io/tx/0x26fe42c9fc93bf4315e688b5883adb13c8bfecb09962503d6fc610c0bd255be0
       rawTx: "0x02f87001178459682f00850da14e413f8303f86994e63151a0ed4e5fafdc951d877102cf0977abd3658084f756fa21c001a02cf54155a006ca9390c3f49c892162fb8a3d768e89859f280df8b963e640c9cfa04021175a4b44284612f025c066cc6ac779df564fe2484136472b0f732aa4adba",
@@ -29,6 +37,14 @@ const withdrawVaults = [
       rawTx: "0x02f89001728459682f008504939402ab83017e8a9465a833afdc250d9d38f8cd9bc2b1e3132db13b2f80a47e108d52000000000000000000000000000000000000000000000000000000000007da15c080a0269a65e900438ba189232e458cf8fa95849a12dd5c401e230e9c0101cb12903ba0125d18d3606e9575561a7ecfb026a211d2a8518009ef106ce3932632d1c3ed18",
       rightClicks: {
         S: 8,
+        X: 5
+      }
+    },
+    instantWithdraw: {
+      // https://etherscan.io/tx/0xaad6e34ff19e61738b436ac87bd542aab5e204093e9f874b04225e760b5b70c0
+      rawTx: "0x02f8910181a78459682f0085043681a6ab830162f69465a833afdc250d9d38f8cd9bc2b1e3132db13b2f80a42775d01c0000000000000000000000000000000000000000000000000000000005f5e100c001a09fd39179812938896065097963760d3170a37da69331b8e2abe98900db1f8e1da00f699a8c38a13ec02ea3fb719f6a948b42e9dd1e060c1604472bf339deca5fc3",
+      rightClicks: {
+        S: 7,
         X: 5
       }
     },
@@ -51,6 +67,14 @@ const withdrawVaults = [
         X: 5
       }
     },
+    instantWithdraw: {
+      // https://etherscan.io/tx/0x8f70dcfaef564eb5093d3dad3822f5561829f0cef36e068f2c8d3ad963f441e9
+      rawTx: "0x02f89001188459682f0085051b0c5549830157f494c0cf10dd710aefb209d9dc67bc746510ffd98a5380a42775d01c0000000000000000000000000000000000000000000000016fc2e998d3da0000c001a0e7f3ada1260b7c7991c1165273bcb8a0da01065fc7b67f16d7ac16be951eb5d4a0218ce626b4464c46424d4002451f5b1c2271586447d532191bb01c434a5b8405",
+      rightClicks: {
+        S: 7,
+        X: 5
+      }
+    },
     completeWithdraw: {
       // https://etherscan.io/tx/0xe09c94bb678ce13f811426ab3a90233f7d96bf7fb81d95dda45e75c3aedeb1e8
       rawTx: "0x02f8720182043f8459682f00851a4027db0f830162aa94c0cf10dd710aefb209d9dc67bc746510ffd98a538084f756fa21c001a0c9d6cbb90fe6d6124a153942d3f56b93ea070f7aae8f584f5b89f8618405dbe2a03fea2eef1408de31e950d3ae96d37b72e199edb28fad25db4818494f737735a3",
@@ -70,6 +94,14 @@ const withdrawVaults = [
         X: 3
       }
     },
+    instantWithdraw: {
+      // https://etherscan.io/tx/0x562b3c3e4338be2ef050effe0adc76eab537e10a7663b2cee8a4f1d4c27ce636
+      rawTx: "0x02f892018203568459682f00850743ecf68c83021ea694cc323557c71c0d1d20a1861dc69c06c5f3cc962480a42775d01c00000000000000000000000000000000000000000000000000000000a63616a7c080a0b95b7627d1a0214b1ed9315631b8d158c0ea26ae264384ededb33c9b615ef8f0a0665fbc69a847ea837a81a252f972bca6225e6281aa6788a2cfa79caa08630621",
+      rightClicks: {
+        S: 7,
+        X: 5
+      }
+    },
     completeWithdraw: {
       // https://etherscan.io/tx/0xa5e2b07c1ff61f4a7642873fba09876ce6c3584a5c4126ba81f709add227ed0e
       rawTx: "0x02f872018202de8459682f00851174aaeacb83026d2d94cc323557c71c0d1d20a1861dc69c06c5f3cc96248084f756fa21c001a0ffe31698a880bf99489515c1ec5df88dc7405c62776a236fc946d16a5b01809ba0129e8f7d94e080dacfe684fa03422653f2fd2caf9eead0bb787de7f6dc1e567e",
@@ -86,6 +118,14 @@ const withdrawVaults = [
       rawTx: "0x02f89001178459682f008508255cef948301c2a19425751853eab4d0eb3652b5eb6ecb102a2789644b80a47e108d52000000000000000000000000000000000000000000000000069e9b658a7aa86ec001a0df453708cf585a8e6659eaeb6c09af2149db78da91e1633fd15afbbf0f4ecd30a0685e202835fdede2dd7f94820ab7f1108bb6e8d92eb8061bb6f7f45a2eb40614",
       rightClicks: {
         S: 9,
+        X: 5
+      }
+    },
+    instantWithdraw: {
+      // https://etherscan.io/tx/0xe063d9ecfe93c53a15104c64d61bfb66ddc99517a3e0379c6fbd790c20f9a389
+      rawTx: "0x02f890011c8459682f0085052719020b83012f359425751853eab4d0eb3652b5eb6ecb102a2789644b80a42775d01c000000000000000000000000000000000000000000000000011c84cd706f7c93c001a016aa2754ab5208ff1670895d5fb47bbf2b10afd4841049b33575607f1a4bc23aa030efeb91126282efc45579fa4e7e2df6476aa6dc29aed7397a8c4b10bc3f1bbc",
+      rightClicks: {
+        S: 7,
         X: 5
       }
     },
@@ -108,6 +148,14 @@ const withdrawVaults = [
         X: 5
       }
     },
+    instantWithdraw: {
+      // https://etherscan.io/tx/0x7964f74bf4d1f28c3951847d0d8c5aba7148ea17ddb098183e88de7dd9c38de0
+      rawTx: "0x02f8b20181e08459682f008508bbc6999c83035b609453773e034d9784153471813dacaff53dbbb78e8c80b844c632183900000000000000000000000000000000000000000000003635c9adc5de9fffff0000000000000000000000000000000000000000000000000000000000000000c080a064653775f34c1cfcbce512b378489cf7acf81fbe437c6b0fd19f18663c51fbe7a0258bfb450163ac2edab5d1190036ae44bb255923948a3e51c6ba08e5b9bce1c4",
+      rightClicks: {
+        S: 7,
+        X: 5
+      }
+    },
     completeWithdraw: {
       // https://etherscan.io/tx/0x4ed59c74231358dac2fc2cf05aeb47122d6ae4241e371602e3531c2da1c29311
       rawTx: "0x02f8700102843dec1da08509a9b9d8fd83061a809453773e034d9784153471813dacaff53dbbb78e8c8084f756fa21c001a0334580f84e69e041df24d9000293fa7a4503ec01bb01f22301ecc40cad99ef7ea00a97e7a78cd123e68c489b193f837bb4932f0714db7e9450e5a59e88d37e6519",
@@ -126,6 +174,7 @@ models.forEach(function (model) {
     const {
       name,
       initiateWithdraw,
+      instantWithdraw,
       completeWithdraw,
     } = withdrawVaults[i];
 
@@ -143,6 +192,24 @@ models.forEach(function (model) {
       await waitForAppScreen(sim);
       // Navigate the display by pressing the right button `right_clicks` times, then pressing both buttons to accept the transaction.
       await sim.navigateAndCompareSnapshots('.', model.name + '_' + name + "_initiate_withdraw", [right_clicks, 0]);
+
+      await tx;
+    }));
+
+    // INSTANT WITHDRAWAL
+    test('[Nano ' + model.letter + '] Instant Withdraw ' + name, zemu(model, async (sim, eth) => {
+      const serializedTx = txFromEtherscan(instantWithdraw.rawTx);
+      const tx = eth.signTransaction(
+        "44'/60'/0'/0",
+        serializedTx,
+      );
+
+      const right_clicks = instantWithdraw.rightClicks[model.letter];
+
+      // Wait for the application to actually load and parse the transaction
+      await waitForAppScreen(sim);
+      // Navigate the display by pressing the right button `right_clicks` times, then pressing both buttons to accept the transaction.
+      await sim.navigateAndCompareSnapshots('.', model.name + '_' + name + "_instant_withdraw", [right_clicks, 0]);
 
       await tx;
     }));
