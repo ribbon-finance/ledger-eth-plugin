@@ -169,7 +169,9 @@ const withdrawVaults = [
 
 // ONLY TEST FOR NANOS FOR NOW
 const models = [nano_models[0]]
-models.forEach(function (model) {
+
+for (let index = 0; index < models.length; index++) {
+  const model = models[index];
   for (let i = 0; i < withdrawVaults.length; i++) {
     const {
       name,
@@ -235,5 +237,5 @@ models.forEach(function (model) {
       await tx;
     }));
   }
-});
+}
 
