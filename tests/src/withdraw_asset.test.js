@@ -17,7 +17,7 @@ const withdrawVaults = [
       // https://etherscan.io/tx/0x26fe42c9fc93bf4315e688b5883adb13c8bfecb09962503d6fc610c0bd255be0
       rawTx: "0x02f87001178459682f00850da14e413f8303f86994e63151a0ed4e5fafdc951d877102cf0977abd3658084f756fa21c001a02cf54155a006ca9390c3f49c892162fb8a3d768e89859f280df8b963e640c9cfa04021175a4b44284612f025c066cc6ac779df564fe2484136472b0f732aa4adba",
       rightClicks: {
-        S: 4,
+        S: 6,
         X: 3
       }
     }
