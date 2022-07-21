@@ -32,7 +32,6 @@ static const uint32_t DEPOSIT_SELECTOR = 0xb6b55f25;
 static const uint32_t DEPOSIT_YIELD_TOKEN_SELECTOR = 0x31807e42;
 
 // withdrawals
-static const uint32_t INSTANT_WITHDRAW_SELECTOR = 0x2775d01c;
 static const uint32_t INITIATE_WITHDRAWAL_SELECTOR = 0x7e108d52;
 static const uint32_t COMPLETE_WITHDRAWAL_SELECTOR = 0xf756fa21;
 
@@ -42,7 +41,6 @@ static const uint32_t COMPLETE_WITHDRAWAL_SELECTOR = 0xf756fa21;
 const uint32_t RIBBON_SELECTORS[NUM_SELECTORS] = {DEPOSIT_SELECTOR,
                                                   DEPOSIT_ETH_SELECTOR,
                                                   DEPOSIT_YIELD_TOKEN_SELECTOR,
-                                                  INSTANT_WITHDRAW_SELECTOR,
                                                   INITIATE_WITHDRAWAL_SELECTOR,
                                                   COMPLETE_WITHDRAWAL_SELECTOR};
 

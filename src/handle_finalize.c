@@ -20,8 +20,7 @@ void handle_finalize(void *parameters) {
         msg->numScreens = 2;
     } else if (context->selectorIndex == INITIATE_WITHDRAWAL) {
         msg->numScreens = 2;
-    } else if (context->selectorIndex == COMPLETE_WITHDRAWAL ||
-               context->selectorIndex == INSTANT_WITHDRAW) {
+    } else if (context->selectorIndex == COMPLETE_WITHDRAWAL) {
         msg->numScreens = 1;
     } else {
         msg->numScreens = 0;

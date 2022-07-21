@@ -52,7 +52,6 @@ void handle_init_contract(void *parameters) {
         case DEPOSIT_ETH:
             break;
         case INITIATE_WITHDRAWAL:
-        case INSTANT_WITHDRAW:
             context->next_param = WITHDRAW_NUM_SHARES;
             break;
         case COMPLETE_WITHDRAWAL:
