@@ -10,6 +10,11 @@
                     "method": "deposit",
                     "plugin": "Ribbon"
                 },
+                "0x2775d01c": {
+                    "erc20OfInterest": [],
+                    "method": "withdrawInstantly",
+                    "plugin": "Ribbon"
+                },
                 "0x7e108d52": {
                     "erc20OfInterest": [],
                     "method": "initiateWithdraw",
@@ -29,6 +34,11 @@
                 "0xb6b55f25": {
                     "erc20OfInterest": [],
                     "method": "deposit",
+                    "plugin": "Ribbon"
+                },
+                "0x2775d01c": {
+                    "erc20OfInterest": [],
+                    "method": "withdrawInstantly",
                     "plugin": "Ribbon"
                 },
                 "0x7e108d52": {
@@ -52,6 +62,11 @@
                     "method": "deposit",
                     "plugin": "Ribbon"
                 },
+                "0x2775d01c": {
+                    "erc20OfInterest": [],
+                    "method": "withdrawInstantly",
+                    "plugin": "Ribbon"
+                },
                 "0x7e108d52": {
                     "erc20OfInterest": [],
                     "method": "initiateWithdraw",
@@ -73,6 +88,11 @@
                     "method": "deposit",
                     "plugin": "Ribbon"
                 },
+                "0x2775d01c": {
+                    "erc20OfInterest": [],
+                    "method": "withdrawInstantly",
+                    "plugin": "Ribbon"
+                },
                 "0x7e108d52": {
                     "erc20OfInterest": [],
                     "method": "initiateWithdraw",
@@ -92,6 +112,11 @@
                 "0xf6326fb3": {
                     "erc20OfInterest": [],
                     "method": "depositETH",
+                    "plugin": "Ribbon"
+                },
+                "0x2775d01c": {
+                    "erc20OfInterest": [],
+                    "method": "withdrawInstantly",
                     "plugin": "Ribbon"
                 },
                 "0x7e108d52": {
@@ -118,6 +143,11 @@
                 "0x31807e42": {
                     "erc20OfInterest": [],
                     "method": "depositYieldToken",
+                    "plugin": "Ribbon"
+                },
+                "0x2775d01c": {
+                    "erc20OfInterest": [],
+                    "method": "withdrawInstantly",
                     "plugin": "Ribbon"
                 },
                 "0x7e108d52": {
