@@ -136,8 +136,29 @@ for (let index = 0; index < models.length; index++) {
     const {
       name,
       initiateWithdraw,
+      instantWithdraw,
       completeWithdraw,
     } = withdrawVaults[i];
+
+    // INSTANT WITHDRAWAL
+    if (instantWithdraw) {
+      test('[Nano ' + model.letter + '] Instant Withdraw ' + name, zemu(model, async (sim, eth) => {
+        const serializedTx = txFromEtherscan(instantWithdraw.rawTx);
+        const tx = eth.signTransaction(
+          "44'/60'/0'/0",
+          serializedTx,
+        );
+
+        const right_clicks = instantWithdraw.rightClicks[model.letter];
+
+        // Wait for the application to actually load and parse the transaction
+        await waitForAppScreen(sim);
+        // Navigate the display by pressing the right button `right_clicks` times, then pressing both buttons to accept the transaction.
+        await sim.navigateAndCompareSnapshots('.', model.name + '_' + name + "_instant_withdraw", [right_clicks, 0]);
+
+        await tx;
+      }));
+    }
 
     // INITIATE WITHDRAWAL
     test('[Nano ' + model.letter + '] Initiate Withdraw ' + name, zemu(model, async (sim, eth) => {
