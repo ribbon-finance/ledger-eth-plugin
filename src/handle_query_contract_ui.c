@@ -124,13 +124,15 @@ void handle_query_contract_ui(void *parameters) {
                 msg->result = ETH_PLUGIN_RESULT_ERROR;
                 return;
         }
-    } else if (context->selectorIndex == INITIATE_WITHDRAWAL) {
+    } else if (context->selectorIndex == INITIATE_WITHDRAWAL ||
+               context->selectorIndex == INSTANT_WITHDRAW) {
+        bool isInstant = context->selectorIndex == INSTANT_WITHDRAW;
         switch (msg->screenIndex) {
             case 0:
                 set_vault_ui(msg);
                 break;
             case 1:
-                set_initiate_withdraw_ui(msg, context);
+                set_initiate_or_instant_withdraw_ui(msg, context, isInstant);
                 break;
             // Keep this
             default:
