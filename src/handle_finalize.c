@@ -18,7 +18,8 @@ void handle_finalize(void *parameters) {
     if (context->selectorIndex == DEPOSIT || context->selectorIndex == DEPOSIT_ETH ||
         context->selectorIndex == DEPOSIT_YIELD_TOKEN) {
         msg->numScreens = 2;
-    } else if (context->selectorIndex == INITIATE_WITHDRAWAL) {
+    } else if (context->selectorIndex == COMPLETE_WITHDRAWAL ||
+               context->selectorIndex == INSTANT_WITHDRAW) {
         msg->numScreens = 2;
     } else if (context->selectorIndex == COMPLETE_WITHDRAWAL) {
         msg->numScreens = 1;

@@ -57,8 +57,15 @@ static void set_deposit_eth_ui(ethQueryContractUI_t *msg) {
                    msg->msgLength);
 }
 
-static void set_initiate_withdraw_ui(ethQueryContractUI_t *msg, context_t *context) {
-    strlcpy(msg->title, "Initiate Withdraw", msg->titleLength);
+static void set_initiate_or_instant_withdraw_ui(ethQueryContractUI_t *msg,
+                                                context_t *context,
+                                                bool isInstant) {
+    if (isInstant) {
+        strlcpy(msg->title, "Instant Withdraw", msg->titleLength);
+    } else {
+        strlcpy(msg->title, "Initiate Withdraw", msg->titleLength);
+    }
+
     uint8_t decimals = WEI_TO_ETHER;
     char ticker[MAX_TICKER_LEN] = "??? ";
 
