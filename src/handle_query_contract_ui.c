@@ -82,6 +82,31 @@ static void set_initiate_withdraw_ui(ethQueryContractUI_t *msg, context_t *conte
                    msg->msgLength);
 }
 
+static void set_instant_withdraw_ui(ethQueryContractUI_t *msg, context_t *context) {
+    strlcpy(msg->title, "Instant Withdraw", msg->titleLength);
+    uint8_t decimals = WEI_TO_ETHER;
+    char ticker[MAX_TICKER_LEN] = "??? ";
+
+    vault_address_ticker_t *currentVault = NULL;
+    for (uint8_t i = 0; i < NUM_VAULT_ADDRESS_COLLECTION; i++) {
+        currentVault = (vault_address_ticker_t *) PIC(&CONTRACT_ADDRESS_COLLECTION[i]);
+        if (memcmp(currentVault->contract_address,
+                   msg->pluginSharedRO->txContent->destination,
+                   ADDRESS_LENGTH) == 0) {
+            decimals = currentVault->decimals;
+            strncpy(ticker, (char *) currentVault->vault_token_ticker, sizeof(ticker));
+            break;
+        }
+    }
+
+    amountToString(context->withdraw_shares_amount,
+                   sizeof(context->withdraw_shares_amount),
+                   decimals,
+                   ticker,
+                   msg->msg,
+                   msg->msgLength);
+}
+
 void handle_query_contract_ui(void *parameters) {
     ethQueryContractUI_t *msg = (ethQueryContractUI_t *) parameters;
     context_t *context = (context_t *) msg->pluginContext;
@@ -111,6 +136,21 @@ void handle_query_contract_ui(void *parameters) {
                         set_deposit_eth_ui(msg);
                         break;
                 }
+            // Keep this
+            default:
+                PRINTF("Received an invalid screenIndex\n");
+                msg->result = ETH_PLUGIN_RESULT_ERROR;
+                return;
+        }
+    } else if (context->selectorIndex == INSTANT_WITHDRAW ||
+               context->selectorIndex == INSTANT_WITHDRAW_STETH) {
+        switch (msg->screenIndex) {
+            case 0:
+                set_vault_ui(msg);
+                break;
+            case 1:
+                set_instant_withdraw_ui(msg, context);
+                break;
             // Keep this
             default:
                 PRINTF("Received an invalid screenIndex\n");

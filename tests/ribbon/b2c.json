@@ -19,6 +19,11 @@
                     "erc20OfInterest": [],
                     "method": "completeWithdraw",
                     "plugin": "Ribbon"
+                },
+                "0x2775d01c": {
+                    "erc20OfInterest": [],
+                    "method": "withdrawInstantly",
+                    "plugin": "Ribbon"
                 }
             }
         },
@@ -39,6 +44,11 @@
                 "0xf756fa21": {
                     "erc20OfInterest": [],
                     "method": "completeWithdraw",
+                    "plugin": "Ribbon"
+                },
+                "0x2775d01c": {
+                    "erc20OfInterest": [],
+                    "method": "withdrawInstantly",
                     "plugin": "Ribbon"
                 }
             }
@@ -61,6 +71,11 @@
                     "erc20OfInterest": [],
                     "method": "completeWithdraw",
                     "plugin": "Ribbon"
+                },
+                "0x2775d01c": {
+                    "erc20OfInterest": [],
+                    "method": "withdrawInstantly",
+                    "plugin": "Ribbon"
                 }
             }
         },
@@ -82,6 +97,11 @@
                     "erc20OfInterest": [],
                     "method": "completeWithdraw",
                     "plugin": "Ribbon"
+                },
+                "0x2775d01c": {
+                    "erc20OfInterest": [],
+                    "method": "withdrawInstantly",
+                    "plugin": "Ribbon"
                 }
             }
         },
@@ -102,6 +122,11 @@
                 "0xf756fa21": {
                     "erc20OfInterest": [],
                     "method": "completeWithdraw",
+                    "plugin": "Ribbon"
+                },
+                "0x2775d01c": {
+                    "erc20OfInterest": [],
+                    "method": "withdrawInstantly",
                     "plugin": "Ribbon"
                 }
             }
@@ -128,6 +153,11 @@
                 "0xf756fa21": {
                     "erc20OfInterest": [],
                     "method": "completeWithdraw",
+                    "plugin": "Ribbon"
+                },
+                "0xc6321839": {
+                    "erc20OfInterest": [],
+                    "method": "withdrawInstantly",
                     "plugin": "Ribbon"
                 }
             }

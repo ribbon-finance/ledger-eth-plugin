@@ -32,6 +32,8 @@ static const uint32_t DEPOSIT_SELECTOR = 0xb6b55f25;
 static const uint32_t DEPOSIT_YIELD_TOKEN_SELECTOR = 0x31807e42;
 
 // withdrawals
+static const uint32_t INSTANT_WITHDRAW_SELECTOR = 0x2775d01c;
+static const uint32_t INSTANT_WITHDRAW_STETH_SELECTOR = 0xc6321839;
 static const uint32_t INITIATE_WITHDRAWAL_SELECTOR = 0x7e108d52;
 static const uint32_t COMPLETE_WITHDRAWAL_SELECTOR = 0xf756fa21;
 
@@ -41,6 +43,8 @@ static const uint32_t COMPLETE_WITHDRAWAL_SELECTOR = 0xf756fa21;
 const uint32_t RIBBON_SELECTORS[NUM_SELECTORS] = {DEPOSIT_SELECTOR,
                                                   DEPOSIT_ETH_SELECTOR,
                                                   DEPOSIT_YIELD_TOKEN_SELECTOR,
+                                                  INSTANT_WITHDRAW_SELECTOR,
+                                                  INSTANT_WITHDRAW_STETH_SELECTOR,
                                                   INITIATE_WITHDRAWAL_SELECTOR,
                                                   COMPLETE_WITHDRAWAL_SELECTOR};
 
@@ -65,11 +69,11 @@ const vault_address_ticker_t CONTRACT_ADDRESS_COLLECTION[NUM_VAULT_ADDRESS_COLLE
      "rstETH-THETA "},
     {{0xcc, 0x32, 0x35, 0x57, 0xc7, 0x1c, 0x0d, 0x1d, 0x20, 0xa1,
       0x86, 0x1d, 0xc6, 0x9c, 0x06, 0xc5, 0xf3, 0xcc, 0x96, 0x24},
-     "T-yvUSDC-P-ETH",
+     "T-USDC-P-ETH",
      "USDC ",
      6,
      //  When the ticker is longer than this, make sure to change MAX_VAULT_TICKER_LEN
-     "ryvUSDC-ETH-P-THETA "},
+     "rUSDC-ETH-P-THETA "},
     {{0xc0, 0xcf, 0x10, 0xdd, 0x71, 0x0a, 0xef, 0xb2, 0x09, 0xd9,
       0xdc, 0x67, 0xbc, 0x74, 0x65, 0x10, 0xff, 0xd9, 0x8a, 0x53},
      "T-APE-C",
