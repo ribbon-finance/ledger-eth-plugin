@@ -5,7 +5,7 @@
 #include <string.h>
 
 // Number of selectors defined in this plugin. Should match the enum `selector_t`.
-#define NUM_SELECTORS 6
+#define NUM_SELECTORS 7
 
 // Name of the plugin.
 #define PLUGIN_NAME "Ribbon Finance"
@@ -30,6 +30,7 @@ typedef enum {
     DEPOSIT_ETH,
     DEPOSIT_YIELD_TOKEN,
     INSTANT_WITHDRAW,
+    INSTANT_WITHDRAW_STETH,
     INITIATE_WITHDRAWAL,
     COMPLETE_WITHDRAWAL,
 } selector_t;
@@ -60,9 +61,7 @@ typedef struct context_t {
 
     // For parsing data.
     uint8_t next_param;  // Set to be the next param we expect to parse.
-    uint16_t offset;     // Offset at which the array or struct starts.
-    bool go_to_offset;   // If set, will force the parsing to iterate through parameters until
-                         // `offset` is reached.
+    bool skip_remaining_params; // If true, don't process any other params
 
     // For both parsing and display.
     selector_t selectorIndex;

@@ -2,14 +2,22 @@
 
 // Handles deposit/depositETH/depositYieldToken
 static void handle_deposit(ethPluginProvideParameter_t *msg, context_t *context) {
+    if (context->skip_remaining_params) {
+        return;
+    }
     copy_parameter(context->deposit_amount, msg->parameter, sizeof(context->deposit_amount));
+    context->skip_remaining_params = true;
 }
 
 static void handle_initiate_or_instant_withdraw(ethPluginProvideParameter_t *msg,
                                                 context_t *context) {
+    if (context->skip_remaining_params) {
+        return;
+    }
     copy_parameter(context->withdraw_shares_amount,
                    msg->parameter,
                    sizeof(context->withdraw_shares_amount));
+    context->skip_remaining_params = true;
 }
 
 void handle_provide_parameter(void *parameters) {
@@ -32,6 +40,7 @@ void handle_provide_parameter(void *parameters) {
             break;
         case INSTANT_WITHDRAW:
         case INITIATE_WITHDRAWAL:
+        case INSTANT_WITHDRAW_STETH:
             handle_initiate_or_instant_withdraw(msg, context);
             break;
         case COMPLETE_WITHDRAWAL:

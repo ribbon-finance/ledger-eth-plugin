@@ -18,7 +18,8 @@ void handle_query_contract_id(void *parameters) {
     } else if (context->selectorIndex == INITIATE_WITHDRAWAL) {
         strlcpy(msg->version, "Initiate Withdraw", msg->versionLength);
         msg->result = ETH_PLUGIN_RESULT_OK;
-    } else if (context->selectorIndex == INSTANT_WITHDRAW) {
+    } else if (context->selectorIndex == INSTANT_WITHDRAW ||
+               context->selectorIndex == INSTANT_WITHDRAW_STETH) {
         strlcpy(msg->version, "Instant Withdraw", msg->versionLength);
         msg->result = ETH_PLUGIN_RESULT_OK;
     } else if (context->selectorIndex == COMPLETE_WITHDRAWAL) {

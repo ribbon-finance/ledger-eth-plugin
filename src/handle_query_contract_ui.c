@@ -142,7 +142,8 @@ void handle_query_contract_ui(void *parameters) {
                 msg->result = ETH_PLUGIN_RESULT_ERROR;
                 return;
         }
-    } else if (context->selectorIndex == INSTANT_WITHDRAW) {
+    } else if (context->selectorIndex == INSTANT_WITHDRAW ||
+               context->selectorIndex == INSTANT_WITHDRAW_STETH) {
         switch (msg->screenIndex) {
             case 0:
                 set_vault_ui(msg);

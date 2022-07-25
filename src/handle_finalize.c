@@ -19,7 +19,8 @@ void handle_finalize(void *parameters) {
         context->selectorIndex == DEPOSIT_YIELD_TOKEN) {
         msg->numScreens = 2;
     } else if (context->selectorIndex == INITIATE_WITHDRAWAL ||
-               context->selectorIndex == INSTANT_WITHDRAW) {
+               context->selectorIndex == INSTANT_WITHDRAW ||
+               context->selectorIndex == INSTANT_WITHDRAW_STETH) {
         msg->numScreens = 2;
     } else if (context->selectorIndex == COMPLETE_WITHDRAWAL) {
         msg->numScreens = 1;

@@ -155,7 +155,7 @@
                     "method": "completeWithdraw",
                     "plugin": "Ribbon"
                 },
-                "0x2775d01c": {
+                "0xc6321839": {
                     "erc20OfInterest": [],
                     "method": "withdrawInstantly",
                     "plugin": "Ribbon"
