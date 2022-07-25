@@ -13,14 +13,14 @@ const withdrawVaults = [
         X: 3
       }
     },
-    // instantWithdraw: {
-    //   // https://etherscan.io/tx/0xaffd234459e82589db8dd157262e6c60475696026496984272f4c2818eb299af
-    //   rawTx: "0x02f890011784773594008513509bcf728303b4dd94e63151a0ed4e5fafdc951d877102cf0977abd36580a42775d01c00000000000000000000000000000000000000000000001130307758c8005adfc080a09ded7c8d42729992b19ea156889fcb039582a1ce5cea579afee746251220cafea024e23cec888240e36f037416a3536f8d54b9d988cf39721d02b3ca6e6a409783",
-    //   rightClicks: {
-    //     S: 7,
-    //     X: 3
-    //   }
-    // },
+    instantWithdraw: {
+      // https://etherscan.io/tx/0xaffd234459e82589db8dd157262e6c60475696026496984272f4c2818eb299af
+      rawTx: "0x02f890011784773594008513509bcf728303b4dd94e63151a0ed4e5fafdc951d877102cf0977abd36580a42775d01c00000000000000000000000000000000000000000000001130307758c8005adfc080a09ded7c8d42729992b19ea156889fcb039582a1ce5cea579afee746251220cafea024e23cec888240e36f037416a3536f8d54b9d988cf39721d02b3ca6e6a409783",
+      rightClicks: {
+        S: 7,
+        X: 3
+      }
+    },
     completeWithdraw: {
       // https://etherscan.io/tx/0x26fe42c9fc93bf4315e688b5883adb13c8bfecb09962503d6fc610c0bd255be0
       rawTx: "0x02f87001178459682f00850da14e413f8303f86994e63151a0ed4e5fafdc951d877102cf0977abd3658084f756fa21c001a02cf54155a006ca9390c3f49c892162fb8a3d768e89859f280df8b963e640c9cfa04021175a4b44284612f025c066cc6ac779df564fe2484136472b0f732aa4adba",
@@ -137,7 +137,28 @@ for (let index = 0; index < models.length; index++) {
       name,
       initiateWithdraw,
       completeWithdraw,
+      instantWithdraw
     } = withdrawVaults[i];
+
+    // INSTANT WITHDRAWAL
+    if (instantWithdraw) {
+      test('[Nano ' + model.letter + '] Instant Withdraw ' + name, zemu(model, async (sim, eth) => {
+        const serializedTx = txFromEtherscan(instantWithdraw.rawTx);
+        const tx = eth.signTransaction(
+          "44'/60'/0'/0",
+          serializedTx,
+        );
+
+        const right_clicks = instantWithdraw.rightClicks[model.letter];
+
+        // Wait for the application to actually load and parse the transaction
+        await waitForAppScreen(sim);
+        // Navigate the display by pressing the right button `right_clicks` times, then pressing both buttons to accept the transaction.
+        await sim.navigateAndCompareSnapshots('.', model.name + '_' + name + "_instant_withdraw", [right_clicks, 0]);
+
+        await tx;
+      }));
+    }
 
     // INITIATE WITHDRAWAL
     test('[Nano ' + model.letter + '] Initiate Withdraw ' + name, zemu(model, async (sim, eth) => {
