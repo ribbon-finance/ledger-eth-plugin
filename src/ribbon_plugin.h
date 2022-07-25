@@ -60,8 +60,8 @@ typedef struct context_t {
     uint8_t withdraw_shares_amount[INT256_LENGTH];
 
     // For parsing data.
-    uint8_t next_param;  // Set to be the next param we expect to parse.
-    bool skip_remaining_params; // If true, don't process any other params
+    uint8_t next_param;          // Set to be the next param we expect to parse.
+    bool skip_remaining_params;  // If true, don't process any other params
 
     // For both parsing and display.
     selector_t selectorIndex;
